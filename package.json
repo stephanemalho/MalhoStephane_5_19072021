@@ -1,0 +1,34 @@
+{
+  "name": "malhostephane_5_19072021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --config webpack.config.js --mode production",
+    "serve": "webpack serve  --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephanemalho/MalhoStephane_5_19072021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stephanemalho/MalhoStephane_5_19072021/issues"
+  },
+  "homepage": "https://github.com/stephanemalho/MalhoStephane_5_19072021#readme",
+  "dependencies": {
+    "autoprefixer": "^10.3.1",
+    "css-loader": "^6.1.0",
+    "mini-css-extract-plugin": "^2.1.0",
+    "node-sass": "^6.0.1",
+    "postcss": "^8.3.5",
+    "postcss-loader": "^6.1.1",
+    "sass-loader": "^12.1.0",
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-remove-empty-scripts": "^0.7.1"
+  }
+}
