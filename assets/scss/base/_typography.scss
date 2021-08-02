@@ -2,14 +2,14 @@
     font-family: verdana, monospace, sans-serif;
 }
 h1{
-    font-size: 3em;
+    font-size: 4em;
     font-weight: bold;
     color: purple;
     margin: 10px;
     
 }
 h2 {
-    font-size: 2em;
+    font-size: 3em;
     font-weight: bold;
     flex-basis: 100%;
     text-align: center;
@@ -18,11 +18,12 @@ h2 {
 h3 {
     margin: 5px 0;
     font-weight: bold;
+    font-size: 1.4rem;
 }
 a {
     text-decoration: none;
     color: black;
-    font-size: 1.3em;
+    font-size: 1.7em;
     transition: all 500ms;
     &:hover {
         color: purple;
