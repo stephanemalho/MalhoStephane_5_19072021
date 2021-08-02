@@ -1,0 +1,44 @@
+section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    article {
+        flex-basis: 40%;
+        margin: auto;
+        box-sizing: border-box;
+        max-width: 350px;
+        margin-bottom: 20px;
+        border: 1px solid black;
+        padding: 7px;
+        a {
+            display: block;
+        }
+        figure {
+            position: relative;
+            span {
+                position: absolute;
+                background-color: white;
+                top: 5px;
+                right: 5px;
+                padding: 1px;
+            }
+        }
+        &:hover {
+            border: 3px solid purple;
+            padding: 5px;
+                p {
+                    color: black;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width:900px) {
+    section {
+        flex-direction:row;
+        flex-wrap:wrap;
+        flex-basis:40%;
+        max-width: 950px;
+        margin: auto;
+    }
+}

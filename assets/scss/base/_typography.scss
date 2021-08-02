@@ -1,0 +1,31 @@
+* {
+    font-family: verdana, monospace, sans-serif;
+}
+h1{
+    font-size: 3em;
+    font-weight: bold;
+    color: purple;
+    margin: 10px;
+    
+}
+h2 {
+    font-size: 2em;
+    font-weight: bold;
+    flex-basis: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+}
+h3 {
+    margin: 5px 0;
+    font-weight: bold;
+}
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.3em;
+    transition: all 500ms;
+    &:hover {
+        color: purple;
+        transition: all 500ms;
+    }
+}
