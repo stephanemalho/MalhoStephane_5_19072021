@@ -10,7 +10,7 @@ footer {
         p {
             padding: 10px;
             flex-basis: 50%;
-            font-size: 1rem;
+            font-size: 1em;
             display: flex;
             justify-content: center;
             align-items: flex-end;
@@ -35,6 +35,9 @@ footer {
                     li {
                         padding: 10px;
                         border-left: 1px solid black;
+                    }
+                    li:first-child {
+                        border: none;
                     }
             }
     }
