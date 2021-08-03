@@ -1,0 +1,9 @@
+# Group 1
+User-agent: Googlebot
+Disallow: /https://stephanemalho.github.io/MalhoStephane_5_19072021/contact.html
+
+# Group 2
+User-agent: *
+Allow: /
+
+Sitemap: https://stephanemalho.github.io/MalhoStephane_5_19072021/

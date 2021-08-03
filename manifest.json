@@ -1,0 +1,9 @@
+{
+    "manifest_version": 1,
+    "permissions": ["webNavigation"],
+    "name": "Orinoco",
+    "theme_color": "purple",
+    "background_color": "#fff",
+    "display": "browser",
+    "start_url": "https://stephanemalho.github.io/MalhoStephane_5_19072021/"
+}
