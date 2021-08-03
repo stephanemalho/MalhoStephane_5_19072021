@@ -22,6 +22,9 @@ section {
                 right: 5px;
                 padding: 1px;
             }
+            figcaption p {
+                font-size: 1em;
+            }
         }
         &:hover {
             border: 3px solid purple;
