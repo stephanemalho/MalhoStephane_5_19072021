@@ -269,7 +269,13 @@ section {
     color: white;
     align-items: center;
     padding: 5px;
-    height: 65px; }
+    height: 65px;
+    font-size: 1.2em;
+    transition: all 500ms; }
+    .basket form:hover {
+      opacity: 0.8;
+      box-shadow: 3px 7px 8px 1px #f3e8f0;
+      transition: all 500ms; }
     .basket form label {
       padding: 5px; }
     .basket form input {
@@ -277,7 +283,7 @@ section {
       max-width: 55px;
       width: auto;
       padding: 5px;
-      font-size: 1.2em;
+      font-size: 1em;
       color: black; }
     .basket form p {
       padding: 5px; }

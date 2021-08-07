@@ -65,6 +65,13 @@ section {
     align-items: center;
     padding: 5px;
     height: 65px;
+    font-size: 1.2em;
+    transition: all 500ms;
+    &:hover {
+      opacity: 0.8;
+      box-shadow: 3px 7px 8px 1px #f3e8f0;
+      transition: all 500ms;
+    }
     label {
       padding: 5px;
     }
@@ -73,7 +80,7 @@ section {
       max-width: 55px;
       width: auto;
       padding: 5px;
-      font-size: 1.2em;
+      font-size: 1em;
       color: black;
     }
     p {
