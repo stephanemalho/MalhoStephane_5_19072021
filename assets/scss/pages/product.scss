@@ -1,1 +1,83 @@
 @import "../main.scss";
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  padding-top: 125px;
+  > p {
+    text-align: center;
+    font-size: 1.1em;
+    margin: 10px;
+  }
+}
+section {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  article {
+    flex-basis: 40%;
+    margin: auto;
+    box-sizing: border-box;
+    max-width: 350px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    padding: 7px;
+    a {
+      display: block;
+    }
+    figure {
+      position: relative;
+      span {
+        position: absolute;
+        background-color: white;
+        top: 5px;
+        right: 5px;
+        padding: 1px;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      figcaption p {
+        font-size: 1em;
+      }
+    }
+    &:hover {
+      border: 3px solid purple;
+      padding: 5px;
+      p {
+        color: black;
+      }
+    }
+  }
+}
+.basket {
+  max-width: 350px;
+  margin: auto;
+  height: 150px;
+  form {
+    display: flex;
+    flex-direction: row;
+    background-color: purple;
+    color: white;
+    align-items: center;
+    padding: 5px;
+    height: 65px;
+    label {
+      padding: 5px;
+    }
+    input {
+      min-width: 40px;
+      max-width: 55px;
+      width: auto;
+      padding: 5px;
+      font-size: 1.2em;
+      color: black;
+    }
+    p {
+      padding:5px;
+    }
+  }
+}

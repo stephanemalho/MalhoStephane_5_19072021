@@ -15,6 +15,7 @@ function getProducts(category){
 function renderProducts(products){
     let container=document.getElementById("container");
     let content="";
+    container.insertAdjacentHTML('beforebegin','<h2>Nos appareils photos</h2>');
     products.forEach(element => {
         content+=
         `
@@ -35,7 +36,7 @@ function renderProducts(products){
             </figure>
           </a>
         </article>
-        `     ;
+        `;
     });
     container.innerHTML=content;
 }
