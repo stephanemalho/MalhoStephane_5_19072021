@@ -270,7 +270,7 @@ section {
     align-items: center;
     padding: 5px;
     height: 65px;
-    font-size: 1.2em;
+    font-size: 1em;
     transition: all 500ms; }
     .basket form:hover {
       opacity: 0.8;
@@ -287,4 +287,9 @@ section {
       color: black; }
     .basket form p {
       padding: 5px; }
+      .basket form p button {
+        background-color: purple;
+        border: none;
+        color: white;
+        font-size: 1.1em; }
 
