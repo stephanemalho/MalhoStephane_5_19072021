@@ -2,6 +2,10 @@ section {
     display: flex;
     flex-direction: column;
     padding: 20px;
+    p {
+        
+        padding:0 0 10px 7%;
+    }
     article {
         flex-basis: 40%;
         margin: auto;

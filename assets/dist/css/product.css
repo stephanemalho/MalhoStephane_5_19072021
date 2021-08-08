@@ -84,6 +84,8 @@ section {
   display: flex;
   flex-direction: column;
   padding: 20px; }
+  section p {
+    padding: 0 0 10px 7%; }
   section article {
     flex-basis: 40%;
     margin: auto;
