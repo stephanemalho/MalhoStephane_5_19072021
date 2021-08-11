@@ -12,7 +12,7 @@ function getProducts(category) {
       return error;
     });
 }
-function renderProducts(products) {
+function renderProducts(products,category) {
   let container = document.getElementById("container");
   let content = "";
   container.insertAdjacentHTML("beforebegin", "<h2>Articles disponibles :</h2>");
@@ -20,7 +20,7 @@ function renderProducts(products) {
     content +=
       `
         <article>
-          <a href="./pages/product.html?id=` +
+          <a href="./pages/product.html?category=`+category+`&id=` +
       element._id +
       `">
             <figure>
@@ -51,5 +51,5 @@ function renderProducts(products) {
   container.innerHTML = content;
 }
 getProducts("cameras").then((result) => {
-  renderProducts(result);
+  renderProducts(result,"cameras");
 });

@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \******************************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack://malhostephane_5_19072021/./assets/js/product.js?");
+eval("function getProduct() {\n    const url = new URL(window.location.href);\n    console.log(url);\n    return fetch(\"http://localhost:3000/api/\" + category + \"/\" + id)\n      .then((response) => response.json())\n      .then((datas) => {\n        console.log(datas);\n        return datas;\n      })\n      .catch((error) => {\n        console.log(error);\n        return error;\n      });\n  }\n\n\n//# sourceURL=webpack://malhostephane_5_19072021/./assets/js/product.js?");
 
 /***/ }),
 
