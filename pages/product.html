@@ -73,7 +73,7 @@
         expères
       </p>
       <section id="container">
-        <h2>caractéristiques de votre produit</h2>
+        <h2>Caractéristiques de votre produit</h2>
         <article>
           <a href="../pages/cart.html">
             <figure>
@@ -83,7 +83,7 @@
               />
               <span>500centimes</span>
               <figcaption>
-                <h3>super titre</h3>
+                <h3>Titre</h3>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
                   saepe optio pariatur, ea nemo aperiam.
@@ -92,14 +92,40 @@
             </figure>
           </a>
         </article>
+        <article>
+          <fieldset>
+            <legend>Caractéristiques du produit :</legend>
+            Faites un choix parmi la sélection
+            <select>
+              <option value="" selected>"3.5mm 1.4"</option>
+              <option value="">"50mm 1.6"</option>
+            </select>
+          </fieldset>
+        </article>
       </section>
       <div class="basket" role="button">
         <form method="post">
-          <label for="quantity" title="quantité">QTÉ</label>
-          <input type="number" placeholder="1" min="1" max="9" name="quantity" id="quantity"/>
-          <p>
-            <button type="button" tabindex="0" class="add-to-cart" data-id="01" data-name="Zurss 50s" data-price="499,00">Ajouter au panier</button>
-          </p>
+          <label for="quantity" title="quantité"
+            >QTÉ
+            <input
+              type="number"
+              placeholder="1"
+              min="1"
+              max="9"
+              name="quantity"
+              id="quantity"
+            />
+            <button
+              type="submit"
+              tabindex="0"
+              class="add-to-cart"
+              data-id="01"
+              data-name="Zurss 50s"
+              data-price="499,00"
+            >
+              Ajouter au panier
+            </button>
+          </label>
         </form>
       </div>
     </main>

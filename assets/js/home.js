@@ -15,7 +15,7 @@ function getProducts(category) {
 function renderProducts(products) {
   let container = document.getElementById("container");
   let content = "";
-  container.insertAdjacentHTML("beforebegin", "<p>Articles disponibles :</p>");
+  container.insertAdjacentHTML("beforebegin", "<h2>Articles disponibles :</h2>");
   products.forEach((element) => {
     content +=
       `

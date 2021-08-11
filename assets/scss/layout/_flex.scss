@@ -2,7 +2,7 @@ section {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    p {
+    > p {
         
         padding:0 0 10px 7%;
     }
@@ -42,13 +42,11 @@ section {
 
 @media only screen and (min-width:900px) {
     section {
-        div {
         display: flex;
         flex-direction:row;
         flex-wrap:wrap;
         flex-basis:40%;
         max-width: 950px;
         margin: auto;
-        }
     }
 }

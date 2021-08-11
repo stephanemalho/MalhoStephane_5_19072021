@@ -80,11 +80,53 @@ a {
   box-sizing: border-box;
   scroll-behavior: smooth; }
 
+.basket {
+  max-width: 350px;
+  margin: auto;
+  height: 150px; }
+  .basket form {
+    display: flex;
+    flex-direction: row;
+    background-color: purple;
+    color: white;
+    align-items: center;
+    padding: 5px;
+    height: 65px;
+    font-size: 1em;
+    transition: all 500ms; }
+    .basket form:hover {
+      opacity: 0.8;
+      box-shadow: 3px 7px 8px 1px #f3e8f0;
+      transition: all 500ms; }
+    .basket form label {
+      padding: 2px;
+      font-size: 0.9em; }
+    .basket form input {
+      min-width: 35px;
+      max-width: 50px;
+      width: auto;
+      padding: 5px;
+      font-size: 1em;
+      color: black; }
+    .basket form button {
+      background-color: purple;
+      border: none;
+      color: white;
+      font-size: 0.9em;
+      padding: 5px; }
+
+@media screen and (min-width: 318px) {
+  .basket form label {
+    padding: 5px;
+    font-size: 1em; }
+  .basket form button {
+    font-size: 1.2em; } }
+
 section {
   display: flex;
   flex-direction: column;
   padding: 20px; }
-  section p {
+  section > p {
     padding: 0 0 10px 7%; }
   section article {
     flex-basis: 40%;
@@ -113,7 +155,7 @@ section {
         color: black; }
 
 @media only screen and (min-width: 900px) {
-  section div {
+  section {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
