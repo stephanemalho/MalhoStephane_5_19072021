@@ -128,7 +128,7 @@ section {
   padding: 20px; }
   section > p {
     padding: 0 0 10px 7%; }
-  section article {
+  section article, section figure, section div {
     flex-basis: 40%;
     margin: auto;
     box-sizing: border-box;
@@ -136,23 +136,26 @@ section {
     margin-bottom: 20px;
     border: 1px solid black;
     padding: 7px; }
-    section article a {
+    section article a, section figure a, section div a {
       display: block; }
-    section article figure {
+    section article figure, section figure figure, section div figure {
       position: relative; }
-      section article figure span {
+      section article figure span, section figure figure span, section div figure span {
         position: absolute;
         background-color: white;
         top: 5px;
         right: 5px;
         padding: 1px; }
-      section article figure figcaption p {
+      section article figure figcaption p, section figure figure figcaption p, section div figure figcaption p {
         font-size: 1em; }
-    section article:hover {
+    section article:hover, section figure:hover, section div:hover {
       border: 3px solid purple;
       padding: 5px; }
-      section article:hover p {
+      section article:hover p, section figure:hover p, section div:hover p {
         color: black; }
+      section article:hover figure, section figure:hover figure, section div:hover figure {
+        border: 1px solid black;
+        padding: 7px; }
 
 @media only screen and (min-width: 900px) {
   section {

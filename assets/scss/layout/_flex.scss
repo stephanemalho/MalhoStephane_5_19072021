@@ -6,7 +6,7 @@ section {
         
         padding:0 0 10px 7%;
     }
-    article {
+    article, figure , div {
         flex-basis: 40%;
         margin: auto;
         box-sizing: border-box;
@@ -35,6 +35,10 @@ section {
             padding: 5px;
                 p {
                     color: black;
+            }
+            figure {
+                border: 1px solid black;
+                padding: 7px;
             }
         }
     }
