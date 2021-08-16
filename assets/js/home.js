@@ -1,4 +1,6 @@
 import * as index from "./index";
+//import {priceToEuros} from "./index";
+
 
 function getProducts(category) {
   return fetch("http://localhost:3000/api/" + category)

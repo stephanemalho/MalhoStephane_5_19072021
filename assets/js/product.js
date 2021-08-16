@@ -43,15 +43,22 @@ function renderProduct(product) {
 <fieldset>
   <legend>Caractéristiques du produit :</legend>
   Faites un choix parmi la sélection
-  <select>
-    <option value="" selected>"3.5mm 1.4"</option>
-    <option value="">"50mm 1.6"</option>
+  <select id="choice">
+  ${product.lenses.map((element) =>   `<option value="${element}">${element}</option>` )}
   </select>
 </fieldset>
 </div>
   `;
   container.innerHTML = content;
+  // console.log(document.querySelector('#choice'));
+  // document.querySelector('#choice').innerHTML += product.lenses.map(element => {
+  //   return`
+  //   <option value="${element}">${element}</option>
+  //   `
+  // });
 }
+
 getProduct().then((result) => {
   renderProduct(result);
 });
+
