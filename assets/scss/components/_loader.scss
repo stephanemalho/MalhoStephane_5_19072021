@@ -1,0 +1,21 @@
+#loader {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  position: fixed;
+  top: 100px;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: loader 2.5s ease both;
+  p {
+    position: absolute;
+    top: 35px;
+    font-size: 3em;
+    font-weight: bold;
+    color: purple;
+    z-index: 1000;
+    animation: p 1.5s ease;
+  }
+}

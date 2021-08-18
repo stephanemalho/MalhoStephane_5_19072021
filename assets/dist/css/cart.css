@@ -262,3 +262,55 @@ header {
           color: purple;
           transition: all 500ms; }
 
+@-webkit-keyframes loader {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    visibility: hidden; } }
+
+@keyframes loader {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    visibility: hidden; } }
+
+@-webkit-keyframes p {
+  0% {
+    transform: translateX(-500%); }
+  100% {
+    transform: translateX(0%); } }
+
+@keyframes p {
+  0% {
+    transform: translateX(-500%); }
+  100% {
+    transform: translateX(0%); } }
+
+#loader {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  position: fixed;
+  top: 100px;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-animation: loader 2.5s ease both;
+          animation: loader 2.5s ease both; }
+  #loader p {
+    position: absolute;
+    top: 35px;
+    font-size: 3em;
+    font-weight: bold;
+    color: purple;
+    z-index: 1000;
+    -webkit-animation: p 1.5s ease;
+            animation: p 1.5s ease; }
+

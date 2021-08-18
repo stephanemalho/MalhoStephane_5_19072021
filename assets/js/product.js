@@ -44,21 +44,19 @@ function renderProduct(product) {
   <legend>Caractéristiques du produit :</legend>
   Faites un choix parmi la sélection
   <select id="choice">
-  ${product.lenses.map((element) =>   `<option value="${element}">${element}</option>` )}
+    ${product.lenses.map((element) =>  `<option value="${element}">${element}</option>` )}
   </select>
 </fieldset>
 </div>
   `;
   container.innerHTML = content;
-  // console.log(document.querySelector('#choice'));
-  // document.querySelector('#choice').innerHTML += product.lenses.map(element => {
-  //   return`
-  //   <option value="${element}">${element}</option>
-  //   `
-  // });
+  //document.querySelector('#choice').innerHTML += product.lenses.map(element => {
+  //return`
+  //<option value="${element}">${element}</option>
+  //`
+  //});
 }
 
 getProduct().then((result) => {
   renderProduct(result);
 });
-

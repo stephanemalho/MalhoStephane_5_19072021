@@ -1,0 +1,20 @@
+@keyframes loader {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes p {
+  0% {
+    transform: translateX(-500%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
