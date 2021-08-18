@@ -302,8 +302,8 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  -webkit-animation: loader 2.5s ease both;
-          animation: loader 2.5s ease both; }
+  -webkit-animation: loader 2s ease both;
+          animation: loader 2s ease both; }
   #loader p {
     position: absolute;
     top: 35px;
@@ -311,6 +311,13 @@ header {
     font-weight: bold;
     color: purple;
     z-index: 1000;
-    -webkit-animation: p 1.5s ease;
-            animation: p 1.5s ease; }
+    -webkit-animation: p 1s ease;
+            animation: p 1s ease; }
+  #loader .fixed {
+    position: absolute;
+    top: 35px;
+    font-size: 3em;
+    font-weight: bold;
+    color: purple;
+    z-index: 1000; }
 

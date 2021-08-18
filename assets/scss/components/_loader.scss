@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: loader 2.5s ease both;
+  animation: loader 2s ease both;
   p {
     position: absolute;
     top: 35px;
@@ -16,6 +16,14 @@
     font-weight: bold;
     color: purple;
     z-index: 1000;
-    animation: p 1.5s ease;
+    animation: p 1s ease;
+  }
+  .fixed {
+    position: absolute;
+    top: 35px;
+    font-size: 3em;
+    font-weight: bold;
+    color: purple;
+    z-index: 1000;
   }
 }
