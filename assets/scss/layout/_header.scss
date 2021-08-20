@@ -1,3 +1,15 @@
+@media only screen and (max-width: 359px) {
+  header {
+    div {
+      position: relative;
+  img {
+    position: absolute;
+    clip: rect(0px, 47px, 68px, 0px);
+    top: 16px;
+  }
+}
+}
+}
 header {
   z-index: 500;
   height: 100px;

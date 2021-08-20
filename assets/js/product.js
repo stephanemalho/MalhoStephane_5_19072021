@@ -42,21 +42,30 @@ function renderProduct(product) {
 <div>
 <fieldset>
   <legend>Caractéristiques du produit :</legend>
-  Faites un choix parmi la sélection
+  <label for="choice">Faites un choix parmi la sélection</label>
   <select id="choice">
     ${product.lenses.map((element) =>  `<option value="${element}">${element}</option>` )}
   </select>
 </fieldset>
 </div>
   `;
-  container.innerHTML = content;
-  //document.querySelector('#choice').innerHTML += product.lenses.map(element => {
-  //return`
-  //<option value="${element}">${element}</option>
-  //`
-  //});
+  container.innerHTML += content;
 }
 
 getProduct().then((result) => {
   renderProduct(result);
 });
+
+// select number value in the basket
+function howManyArticles() {
+  let quantity = document.getElementById("quantity").value;
+  localStorage.setItem('number', quantity);
+}
+howManyArticles();
+
+
+
+
+
+
+

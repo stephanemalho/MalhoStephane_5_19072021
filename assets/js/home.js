@@ -49,8 +49,8 @@ function renderProducts(products,category) {
         </article>
         `;
   });
-  container.innerHTML = content;
-  container.insertAdjacentHTML("beforebegin", "<h2>Voici nos appareils photos</h2>");
+  container.innerHTML += content;
+  //container.insertAdjacentHTML("beforebegin", "<h2>Voici nos appareils photos</h2>");
 }
 getProducts("cameras").then((result) => {
   renderProducts(result,"cameras");
