@@ -215,7 +215,8 @@ header {
   width: 100%;
   background-color: #f3e8f0;
   position: fixed;
-  border-bottom: 2px solid purple; }
+  border-bottom: 2px solid purple;
+  transition: 0.3s; }
   header div {
     height: 100%;
     width: 100%;
