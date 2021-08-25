@@ -1,1 +1,62 @@
 @import "../main.scss";
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  padding-top: 125px;
+  > p {
+    text-align: center;
+    font-size: 1.1em;
+    margin: 10px;
+  }
+}
+section {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  article , div  {
+    flex-basis: 40%;
+    margin: auto;
+    box-sizing: border-box;
+    max-width: 350px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    padding: 7px;
+    a {
+      display: block;
+    }
+    figure  {
+      position: relative;
+      span {
+        position: absolute;
+        background-color: white;
+        top: 5px;
+        right: 5px;
+        padding: 1px;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      figcaption p {
+        font-size: 1em;
+      }
+    }
+    &:hover {
+      border: 3px solid purple;
+      padding: 5px;
+      p {
+        color: black;
+      }
+    }
+    legend {
+      font-weight: bold;
+      padding-bottom: 5px;
+    }
+    select {
+      margin: 5px 0;
+    }
+  }
+}

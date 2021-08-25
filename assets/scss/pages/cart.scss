@@ -1,1 +1,14 @@
 @import "../main.scss";
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  padding-top: 125px;
+  > p {
+    text-align: center;
+    font-size: 1.1em;
+    margin: 10px;
+  }
+}

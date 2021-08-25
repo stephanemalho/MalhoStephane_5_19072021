@@ -2,7 +2,11 @@ section {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    article {
+    > p {
+        
+        padding:0 0 10px 7%;
+    }
+    article, figure , div {
         flex-basis: 40%;
         margin: auto;
         box-sizing: border-box;
@@ -32,12 +36,17 @@ section {
                 p {
                     color: black;
             }
+            figure {
+                border: 1px solid black;
+                padding: 7px;
+            }
         }
     }
 }
 
 @media only screen and (min-width:900px) {
     section {
+        display: flex;
         flex-direction:row;
         flex-wrap:wrap;
         flex-basis:40%;
