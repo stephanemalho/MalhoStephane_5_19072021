@@ -2,17 +2,16 @@ import * as index from "./index";
 //import {priceToEuros} from "./index";
 
 
-function getProducts(category) {
-  return fetch("http://localhost:3000/api/" + category)
-    .then((response) => response.json())
-    .then((datas) => {
-      console.log(datas);
-      return datas;
-    })
-    .catch((error) => {
-      console.log(error);
-      return error;
-    });
+async function getProducts(category) {
+  try {
+    const response = await fetch("http://localhost:3000/api/" + category);
+    const datas = await response.json();
+    console.log(datas);
+    return datas;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
 }
 function renderProducts(products,category) {
   let container = document.getElementById("container");

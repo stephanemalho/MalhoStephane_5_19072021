@@ -82,8 +82,7 @@ a {
 
 .basket {
   max-width: 350px;
-  margin: auto;
-  height: 150px; }
+  margin: auto; }
   .basket form {
     display: flex;
     flex-direction: row;
@@ -114,6 +113,22 @@ a {
       color: white;
       font-size: 0.9em;
       padding: 5px; }
+  .basket a {
+    margin: 50px 0;
+    height: 50px;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: purple;
+    transition: all 500ms; }
+    .basket a:hover {
+      opacity: 0.8;
+      box-shadow: 3px 7px 8px 1px #f3e8f0;
+      transition: all 500ms; }
 
 @media screen and (min-width: 318px) {
   .basket form label {
@@ -311,8 +326,8 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  -webkit-animation: loader 2s ease both;
-          animation: loader 2s ease both; }
+  -webkit-animation: loader 1.4s ease both;
+          animation: loader 1.4s ease both; }
   #loader p {
     position: absolute;
     top: 35px;
@@ -320,8 +335,8 @@ header {
     font-weight: bold;
     color: purple;
     z-index: 1000;
-    -webkit-animation: p 1s ease;
-            animation: p 1s ease; }
+    -webkit-animation: p 0.6s ease;
+            animation: p 0.6s ease; }
   #loader .fixed {
     position: absolute;
     top: 35px;

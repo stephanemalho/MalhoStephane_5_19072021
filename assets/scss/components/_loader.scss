@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: loader 2s ease both;
+  animation: loader 1.4s ease both;
   p {
     position: absolute;
     top: 35px;
@@ -16,7 +16,7 @@
     font-weight: bold;
     color: purple;
     z-index: 1000;
-    animation: p 1s ease;
+    animation: p 0.6s ease;
   }
   .fixed {
     position: absolute;
