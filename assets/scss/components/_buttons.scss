@@ -52,7 +52,51 @@
       opacity: 0.8;
       box-shadow: 3px 7px 8px 1px #f3e8f0;
       transition: all 500ms;
-   }
+    }
+  }
+}
+
+#checkCart {
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  .modal {
+    overflow: auto;
+    width: 600px;
+    max-width:calc(100vw -20px);
+    max-height: calc(100vh -20px);
+    padding: 20px;
+    background-color: #fff;
+    i {
+      font-size: 30px;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 30px;
+    }
+    a:last-child {
+      margin: 50px 0;
+      height: 50px;
+      border: none;
+      color: white;
+      font-size: 1.2em;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: purple;
+      transition: all 500ms;
+      &:hover {
+        opacity: 0.8;
+        box-shadow: 3px 7px 8px 1px #f3e8f0;
+        transition: all 500ms;
+      }
+    }
   }
 }
 @media screen and (min-width: 318px) {

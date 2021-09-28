@@ -1,6 +1,4 @@
 import * as index from "./index";
-//import {priceToEuros} from "./index";
-
 
 async function getProducts(category) {
   try {
