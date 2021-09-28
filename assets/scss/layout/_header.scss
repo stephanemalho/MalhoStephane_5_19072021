@@ -47,8 +47,10 @@ header {
           padding-right: 10px;
           a {
             position: relative;
-            font-size: 1.1em;
+            font-size: 1.2em;
+            font-weight: bold;
             i {
+              font-size: 28px;
               color: purple;
               transition: all 500ms;
             }
@@ -58,11 +60,11 @@ header {
               border-radius: 50%;
               background-color: purple;
               color: white;
-              width: 15px;
-              height: 15px;
-              line-height: 15px;
+              width: 20px;
+              height: 20px;
+              line-height: 20px;
               text-align: center;
-              right: -8px;
+              right: 1px;
               font-size: 0.7em;
               transition: all 500ms;
             }
@@ -70,12 +72,11 @@ header {
         }
         li:last-child:hover {
           i {
-            color: white;
+            color: rgb(209, 73, 209);
             transition: all 500ms;
           }
           span {
-            background-color: white;
-            color: purple;
+            background-color: rgb(209, 73, 209);
             transition: all 500ms;
           }
         }

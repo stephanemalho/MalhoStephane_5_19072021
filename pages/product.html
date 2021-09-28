@@ -59,8 +59,8 @@
             </li>
             <li>
               <a href="../pages/cart.html"
-                ><i class="fas fa-shopping-cart"></i><span>0</span></a
-              >
+                ><i class="fas fa-shopping-cart"></i><span id="cart-qty"></span
+              ></a>
             </li>
           </ul>
         </nav>
@@ -79,7 +79,6 @@
       <section id="container">
         <h2>Caractéristiques de votre produit</h2>
         <!-- Product.js-->
-
       </section>
       <div class="basket">
         <form method="post" class="box">
@@ -94,18 +93,19 @@
               name="quantity"
               id="quantity"
             />
-          </label> 
-            <button
-              type="submit"
-              tabindex="0"
-            >
-              Ajouter au panier
-            </button>
+          </label>
+          <button type="submit" tabindex="0" class="modal">
+            Ajouter au panier
+          </button>
         </form>
-        <a href="../pages/cart.html">
-          Vérifier mon Panier
-        </a>
       </div>
+      <aside id="checkCart" aria-hidden="true" aria-labelledby="titleModal">
+        <div class="modal">
+          <i class="fas fa-times" id="close" tabindex="0"></i>
+          <h2 id="titleModal">L'ajout à votre panier à été validé</h2>
+          <a href="../pages/cart.html"> Vérifier mon Panier </a>
+        </div>
+      </aside>
     </main>
     <footer>
       <ul>
