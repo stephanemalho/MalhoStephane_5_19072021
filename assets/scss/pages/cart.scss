@@ -11,4 +11,79 @@ main {
     font-size: 1.1em;
     margin: 10px;
   }
+  img {
+    width: 100px;
+    height: 70px;
+  }
+}
+#container {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  h2 {
+    padding: 30px 10px;
+    text-align: left;
+  }
+  figure {
+    position: relative;
+    i {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      color: white;
+      background-color: rgb(187, 44, 44);
+      height: 25px;
+      width: 25px;
+      text-align: center;
+      padding: 4px;
+    }
+    figcaption p {
+      padding: 3px 0;
+    }
+  }
+}
+#resume {
+  display: flex;
+  flex-direction: column;
+  background-color: #f3e8f0;
+  max-width: 350px;
+  padding: 0;
+  thead {
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    tr {
+      th {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  tbody {
+    background-color: rgb(252, 249, 249);
+    border-bottom: 1px solid rgb(241, 241, 241);
+    tr {
+      text-align: left;
+      padding: 20px;
+      border-bottom: 1px solid lightgray;
+      th {
+        padding: 5px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width:900px) {
+
+  .row {
+      display: flex;
+      flex-direction:row;
+      width: 100%;
+      max-width: 950px;
+      margin: auto;
+  }
 }

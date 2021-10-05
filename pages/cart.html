@@ -57,6 +57,11 @@
             <li>
               <a href="../index.html">Accueil</a>
             </li>
+            <li>
+              <a href="../pages/cart.html"
+                ><i class="fas fa-shopping-cart"></i><span id="cart-qty"></span
+              ></a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -71,10 +76,50 @@
         Organisez votre panier, et faites vous livrer les produits dans les
         meilleurs délais
       </p>
-      <section id="container">
-        <h2> <span id="cart-qty">  </span> produit<span id="plurial"></span> à votre panier</h2>
-        <!-- cart.js-->
-      </section>
+      <div class="row">
+        <section id="container">
+          <h2>Panier d'achat<span id="plurial"></span></h2>
+
+          <!-- cart.js-->
+        </section>
+        <section id="resume">
+          <table>
+            <thead>
+              <tr>
+                <th>Résumé</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>articles</th>
+                <td>5</td>
+              </tr>
+              <tr>
+                <th>Livraison</th>
+                <td>Gratuite</td>
+              </tr>
+              <tr>
+                <th>Total HT</th>
+                <td>00000€</td>
+              </tr>
+              <tr>
+                <th>TVA</th>
+                <td>20%</td>
+              </tr>
+              <tr>
+                <th>Total TTC</th>
+                <td>00000€</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <th>
+                <img src="../assets/img/Logo.png" alt="Logo de Orinoco" />
+              </th>
+            </tfoot>
+          </table>
+        </section>
+      </div>
     </main>
     <footer>
       <ul>

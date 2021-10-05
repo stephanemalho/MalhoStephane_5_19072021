@@ -1,6 +1,10 @@
 import * as index from "./index";
 import { getCartQuantity } from "./index";
 
+/****************************************************
+ ****************  GET PRODUCT  *********************
+ ****************************************************/
+
 async function getProduct() {
   const url = new URL(window.location.href);
   let category = url.searchParams.get("category");
@@ -15,6 +19,11 @@ async function getProduct() {
     return error;
   }
 }
+
+/****************************************************
+ ********* RENDER PRODUCT IN HTML  ******************
+ ****************************************************/
+
 function renderProduct(product) {
   let container = document.getElementById("container");
   let content =
@@ -72,6 +81,15 @@ getProduct().then((result) => {
     });
 });
 
+/****************************************************
+ *************** TO ADD TO CARD *********************
+ ****************************************************
+ ************ MAP CART and CHECK IF *****************
+ ************ THE VALUE OF QTY HAVE TO **************
+ ************ BE INCREMENTED and SELECT *************
+ ************ THE RIGHT optionVALUE  ****************
+ ****************************************************/
+
 function addToCard(product) {
   let cart = index.getCart();
 
@@ -96,7 +114,6 @@ function addToCard(product) {
     cart.push(newProduct);
     localStorage.setItem("cart", JSON.stringify(cart));
   } else {
-    //sinon
     const newCart = cart.map((element) => {
       if (
         element._id === product._id &&
@@ -108,23 +125,37 @@ function addToCard(product) {
     });
     localStorage.setItem("cart", JSON.stringify(newCart));
   }
+  // ADD QUANTITY OF THE CARD IN THE SPAN ID "cart-qty"
   document.getElementById("cart-qty").innerHTML = getCartQuantity();
-
-  // Afficher un modal du panier au clic
-  let modal = document.getElementById("checkCart");
-  modal.style.display = "flex";
-  modal.setAttribute("aria-hidden", false);
+  toggleModal("open");
 }
-// Fermer le modal du panier
+// RUN MODAL ON CLIC
 let btn = document.getElementById("close");
 btn.addEventListener("click", (event) => {
   event.preventDefault();
-  let modal = document.getElementById("checkCart");
-  modal.style.display = "none";
-  modal.setAttribute("aria-hidden", true);
+  toggleModal("close");
 });
 
-function getOptionsType() {
+/****************************************************
+ *************** OPEN and CLOSE  ********************
+ *************** MODAL FUNCTION  ********************
+ ****************************************************/
+const toggleModal = (toDo) => {
+  if (toDo === "open") {
+    // SHOW MODAL
+    let modal = document.getElementById("checkCart");
+    modal.style.display = "flex";
+    modal.setAttribute("aria-hidden", false);
+  }
+  if (toDo === "close") {
+    // HIDE MODAL
+    let modal = document.getElementById("checkCart");
+    modal.style.display = "none";
+    modal.setAttribute("aria-hidden", true);
+  }
+};
+// PERMISSION TO ADD OTHER TYPE OF PRODUCTS
+export function getOptionsType() {
   const url = new URL(window.location.href);
   let category = url.searchParams.get("category");
 

@@ -147,11 +147,17 @@ a {
     max-height: calc(100vh -20px);
     padding: 20px;
     background-color: #fff; }
-    #checkCart .modal i {
+    #checkCart .modal button {
       font-size: 30px;
       display: flex;
       justify-content: flex-end;
-      margin-bottom: 30px; }
+      margin-bottom: 30px;
+      width: 100%;
+      background-color: white;
+      border: none; }
+      #checkCart .modal button:hover {
+        opacity: 0.6;
+        transition: all 500ms; }
     #checkCart .modal a:last-child {
       margin: 50px 0;
       height: 50px;
@@ -395,4 +401,63 @@ main {
     text-align: center;
     font-size: 1.1em;
     margin: 10px; }
+  main img {
+    width: 100px;
+    height: 70px; }
+
+#container {
+  display: flex;
+  flex-direction: column;
+  padding: 0; }
+  #container h2 {
+    padding: 30px 10px;
+    text-align: left; }
+  #container figure {
+    position: relative; }
+    #container figure i {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      color: white;
+      background-color: #bb2c2c;
+      height: 25px;
+      width: 25px;
+      text-align: center;
+      padding: 4px; }
+    #container figure figcaption p {
+      padding: 3px 0; }
+
+#resume {
+  display: flex;
+  flex-direction: column;
+  background-color: #f3e8f0;
+  max-width: 350px;
+  padding: 0; }
+  #resume thead {
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    #resume thead tr th {
+      font-size: 1.5em;
+      margin-bottom: 10px; }
+  #resume tbody {
+    background-color: #fcf9f9;
+    border-bottom: 1px solid #f1f1f1; }
+    #resume tbody tr {
+      text-align: left;
+      padding: 20px;
+      border-bottom: 1px solid lightgray; }
+      #resume tbody tr th {
+        padding: 5px; }
+
+@media only screen and (min-width: 900px) {
+  .row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 950px;
+    margin: auto; } }
 

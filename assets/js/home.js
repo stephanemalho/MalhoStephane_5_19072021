@@ -1,5 +1,20 @@
 import * as index from "./index";
 
+// header behavior
+const nav = document.querySelector("header"); 
+window.addEventListener('scroll', (e) => {
+    
+  if (window.scrollY > 120 ) {
+    nav.style.top = "-100px";
+  } else {
+    nav.style.top = 0;
+  }
+});
+
+/****************************************************
+ ****************  GET PRODUCT  *********************
+ ****************************************************/
+
 async function getProducts(category) {
   try {
     const response = await fetch("http://localhost:3000/api/" + category);
@@ -11,6 +26,11 @@ async function getProducts(category) {
     return error;
   }
 }
+
+/****************************************************
+ ********* RENDER PRODUCT IN HTML ******************
+ ****************************************************/
+
 function renderProducts(products,category) {
   let container = document.getElementById("container");
   let content = "";

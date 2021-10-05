@@ -147,11 +147,17 @@ a {
     max-height: calc(100vh -20px);
     padding: 20px;
     background-color: #fff; }
-    #checkCart .modal i {
+    #checkCart .modal button {
       font-size: 30px;
       display: flex;
       justify-content: flex-end;
-      margin-bottom: 30px; }
+      margin-bottom: 30px;
+      width: 100%;
+      background-color: white;
+      border: none; }
+      #checkCart .modal button:hover {
+        opacity: 0.6;
+        transition: all 500ms; }
     #checkCart .modal a:last-child {
       margin: 50px 0;
       height: 50px;

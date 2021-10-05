@@ -73,11 +73,18 @@
     max-height: calc(100vh -20px);
     padding: 20px;
     background-color: #fff;
-    i {
+    button {
       font-size: 30px;
       display: flex;
       justify-content: flex-end;
       margin-bottom: 30px;
+      width: 100%;
+      background-color: white;
+      border: none;
+      &:hover {
+        opacity: 0.6;
+        transition: all 500ms;
+      }
     }
     a:last-child {
       margin: 50px 0;
