@@ -59,7 +59,8 @@
             </li>
             <li>
               <a href="../pages/cart.html"
-                ><i class="fas fa-shopping-cart"></i><span id="cart-qty"></span
+                ><i class="fas fa-shopping-cart"></i
+                ><span class="cart-qty"></span
               ></a>
             </li>
           </ul>
@@ -78,47 +79,51 @@
       </p>
       <div class="row">
         <section id="container">
-          <h2>Panier d'achat<span id="plurial"></span></h2>
-
-          <!-- cart.js-->
+          <h2>Panier d'achats</h2>
+          <!-- <div class="empty-card"><a href="../index.html"><p>Trop triste<i class="fas fa-sad-cry"></i> d'être vide</p></a></div> -->
+          <!-- cart.js => renderCart() -->
         </section>
-        <section id="resume">
-          <table>
-            <thead>
-              <tr>
-                <th>Résumé</th>
-                
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>articles</th>
-                <td>5</td>
-              </tr>
-              <tr>
-                <th>Livraison</th>
-                <td>Gratuite</td>
-              </tr>
-              <tr>
-                <th>Total HT</th>
-                <td>00000€</td>
-              </tr>
-              <tr>
-                <th>TVA</th>
-                <td>20%</td>
-              </tr>
-              <tr>
-                <th>Total TTC</th>
-                <td>00000€</td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <th>
-                <img src="../assets/img/Logo.png" alt="Logo de Orinoco" />
-              </th>
-            </tfoot>
-          </table>
-        </section>
+        <div class="desktop-media">
+          <aside id="resume">
+            <!-- cart.js => renderAmount() -->
+          </aside>
+          <div class="bg-form-container">
+            <section id="form-submit">
+              <h3>Adresse de Livraison</h3>
+              <form>
+                <div>
+                  <label for="name">Nom</label>
+                  <input id="name" autofocus required />
+                </div>
+                <div>
+                  <label for="first-name">Prénom</label>
+                  <input id="first-name" class="form" required />
+                </div>
+                <div>
+                  <label for="postal-adresse">Adresse postale</label>
+                  <input id="postal-adresse" type="search" required />
+                </div>
+                <div>
+                  <label for="input">Ville</label>
+                  <input id="input" type="search" required/>
+                </div>
+                <div>
+                  <label for="postal-code">code postal</label>
+                  <input id="postal-code" type="search" required/>
+                </div>
+                <div>
+                  <label for="phone">Téléphone</label>
+                  <input id="phone" type="tel" required/>
+                </div>
+                <div>
+                  <label for="email"> Adresse email </label>
+                  <input id="email" type="email" required />
+                </div>
+                <button class="btn-form-submit" type="submit">Envoyer</button>
+              </form>
+            </section>
+          </div>
+        </div>
       </div>
     </main>
     <footer>

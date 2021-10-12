@@ -1,5 +1,4 @@
 import * as index from "./index";
-import { getCartQuantity } from "./index";
 
 /****************************************************
  ****************  GET PRODUCT  *********************
@@ -11,7 +10,7 @@ async function getProduct() {
   let id = url.searchParams.get("id");
   try {
     const response = await fetch(
-      "http://localhost:3000/api/" + category + "/" + id
+      "http://localhost:3000/api/" + category + "/" + id // RETURN URL WITH category AND ITS id
     );
     const datas = await response.json();
     return datas;
@@ -37,7 +36,7 @@ function renderProduct(product) {
       alt="appareil photo ancien avec zoom"
     />
     <span>` +
-    index.priceToEuros(product.price) +
+    index.priceToEuros(product.price) + " €" +
     `</span>
     <figcaption>
       <h3>` +
@@ -67,7 +66,7 @@ function renderProduct(product) {
   document
     .getElementsByTagName("form")[0]
     .addEventListener("submit", function (e) {});
-  container.innerHTML += content;
+  container.innerHTML += content; // ADD CONTENT WITH CONTAINER INNERHTML
 }
 
 getProduct().then((result) => {
@@ -75,8 +74,7 @@ getProduct().then((result) => {
   document
     .getElementsByTagName("form")[0]
     .addEventListener("submit", function (e) {
-      //stop propagation
-      e.preventDefault();
+      e.preventDefault(); //STOP PROPAGATION
       addToCard(result);
     });
 });
@@ -84,10 +82,6 @@ getProduct().then((result) => {
 /****************************************************
  *************** TO ADD TO CARD *********************
  ****************************************************
- ************ MAP CART and CHECK IF *****************
- ************ THE VALUE OF QTY HAVE TO **************
- ************ BE INCREMENTED and SELECT *************
- ************ THE RIGHT optionVALUE  ****************
  ****************************************************/
 
 function addToCard(product) {
@@ -96,11 +90,12 @@ function addToCard(product) {
   product.optionValue = document.getElementById("choice").value;
   product.qty = Number(document.getElementById("quantity").value);
 
+  // CHECK IF PRODUCT IS DEFIND ON CART
   const isProduct = cart.find(
     (element) =>
       element._id === product._id && element.optionValue === product.optionValue
   );
-
+  // IF UNDEFINED ADD NEW PRODUCT ON CART
   if (isProduct === undefined) {
     let newProduct = {
       _id: product._id,
@@ -113,7 +108,9 @@ function addToCard(product) {
     };
     cart.push(newProduct);
     localStorage.setItem("cart", JSON.stringify(cart));
-  } else {
+  }
+  // ELSE INCREASE THE NEW QTY WITH isPRODUCT.qty
+  else {
     const newCart = cart.map((element) => {
       if (
         element._id === product._id &&
@@ -125,45 +122,45 @@ function addToCard(product) {
     });
     localStorage.setItem("cart", JSON.stringify(newCart));
   }
-  // ADD QUANTITY OF THE CARD IN THE SPAN ID "cart-qty"
-  document.getElementById("cart-qty").innerHTML = getCartQuantity();
+  // SHOW FUNCTION IN index.js
+  index.updateCartQty();
   toggleModal("open");
 }
-// RUN MODAL ON CLIC
-let btn = document.getElementById("close");
+let btn = document.getElementById("close"); // RUN MODAL ON CLIC
 btn.addEventListener("click", (event) => {
   event.preventDefault();
   toggleModal("close");
 });
 
 /****************************************************
- *************** OPEN and CLOSE  ********************
  *************** MODAL FUNCTION  ********************
  ****************************************************/
 const toggleModal = (toDo) => {
+  let modal = document.getElementById("checkCart");
   if (toDo === "open") {
-    // SHOW MODAL
-    let modal = document.getElementById("checkCart");
     modal.style.display = "flex";
-    modal.setAttribute("aria-hidden", false);
+    modal.setAttribute("aria-hidden", false); // SHOW MODAL
   }
   if (toDo === "close") {
-    // HIDE MODAL
-    let modal = document.getElementById("checkCart");
     modal.style.display = "none";
-    modal.setAttribute("aria-hidden", true);
+    modal.setAttribute("aria-hidden", true); // HIDE MODAL
   }
 };
-// PERMISSION TO ADD OTHER TYPE OF PRODUCTS
+
 export function getOptionsType() {
   const url = new URL(window.location.href);
   let category = url.searchParams.get("category");
 
   if (category === "cameras") {
-    return "lenses";
+    return "lenses"; // RETURN LENSES OF CATEGORY
   }
 
-  if (category === "teddies") {
-    return "colors";
-  }
+  // PERMISSION TO ADD OTHER TYPE OF PRODUCTS
+
+  // if (category === "teddies") {
+  //   return "colors";
+  // }
+  // if (category === "fournitures") {
+  //   return "varnish";
+  // }
 }

@@ -401,63 +401,104 @@ main {
     text-align: center;
     font-size: 1.1em;
     margin: 10px; }
-  main img {
-    width: 100px;
-    height: 70px; }
-
-#container {
-  display: flex;
-  flex-direction: column;
-  padding: 0; }
-  #container h2 {
-    padding: 30px 10px;
-    text-align: left; }
-  #container figure {
-    position: relative; }
-    #container figure i {
-      position: absolute;
-      right: 5px;
-      top: 5px;
-      color: white;
-      background-color: #bb2c2c;
-      height: 25px;
-      width: 25px;
-      text-align: center;
-      padding: 4px; }
-    #container figure figcaption p {
-      padding: 3px 0; }
-
-#resume {
-  display: flex;
-  flex-direction: column;
-  background-color: #f3e8f0;
-  max-width: 350px;
-  padding: 0; }
-  #resume thead {
-    padding: 5px;
-    border-bottom: 1px solid lightgray;
-    height: 45px;
+  main .row {
+    margin: 0 10px; }
+  main #container {
     display: flex;
-    flex-direction: row;
-    align-items: center; }
-    #resume thead tr th {
-      font-size: 1.5em;
-      margin-bottom: 10px; }
-  #resume tbody {
-    background-color: #fcf9f9;
-    border-bottom: 1px solid #f1f1f1; }
-    #resume tbody tr {
-      text-align: left;
-      padding: 20px;
-      border-bottom: 1px solid lightgray; }
-      #resume tbody tr th {
-        padding: 5px; }
+    flex-direction: column;
+    padding: 0; }
+    main #container img {
+      -o-object-fit: cover;
+         object-fit: cover;
+      width: 100px;
+      height: 70px; }
+    main #container h2 {
+      padding: 30px 0;
+      text-align: left; }
+    main #container figure {
+      position: relative; }
+      main #container figure i {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        color: white;
+        background-color: #bb2c2c;
+        height: 25px;
+        width: 25px;
+        text-align: center;
+        padding: 4px; }
+      main #container figure figcaption p {
+        padding: 3px 0; }
+  main #resume {
+    display: flex;
+    flex-direction: column;
+    background-color: #f3e8f0;
+    max-width: 360px;
+    padding: 0; }
+    main #resume thead {
+      padding: 5px;
+      border-bottom: 1px solid lightgray;
+      height: 45px;
+      display: flex;
+      flex-direction: row;
+      align-items: center; }
+      main #resume thead tr th {
+        font-size: 1.5em;
+        margin-bottom: 10px; }
+    main #resume tbody {
+      background-color: #fcf9f9;
+      border-bottom: 1px solid #f1f1f1; }
+      main #resume tbody tr {
+        text-align: left;
+        padding: 20px;
+        border-bottom: 1px solid lightgray; }
+        main #resume tbody tr th {
+          padding: 5px; }
+    main #resume tfoot #logo-table {
+      width: 30%;
+      height: auto; }
+  main .bg-form-container {
+    background-color: #f3e8f0;
+    max-width: 360px;
+    margin-top: 30px; }
+    main .bg-form-container h3 {
+      display: block;
+      border-bottom: 1px solid black;
+      padding: 20px 0; }
+    main .bg-form-container form {
+      padding-top: 10px; }
+      main .bg-form-container form button {
+        display: flex;
+        flex-direction: column;
+        background-color: purple;
+        border: none;
+        color: white;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        height: 40px;
+        width: 100%;
+        font-size: 1.3em;
+        font-weight: bold;
+        transition: all 500ms; }
+        main .bg-form-container form button:hover {
+          opacity: 0.8;
+          box-shadow: 3px 7px 8px 1px #f3e8f0;
+          transition: all 500ms; }
 
 @media only screen and (min-width: 900px) {
-  .row {
+  main .row {
     display: flex;
     flex-direction: row;
     width: 100%;
-    max-width: 950px;
-    margin: auto; } }
+    max-width: 880px;
+    margin: 50px auto; }
+    main .row .desktop-media {
+      margin-top: 20px; }
+    main .row #container {
+      min-height: 860px; }
+      main .row #container article {
+        margin: 20px auto; }
+      main .row #container h2 {
+        padding: 30px 15px; } }
 
