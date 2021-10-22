@@ -47,6 +47,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+.text-success {
+  color: green; }
+
+.text-fail {
+  color: red; }
+
 * {
   font-family: verdana, monospace, sans-serif; }
 
@@ -250,6 +256,10 @@ footer {
     font-size: 1em; }
     footer ul li {
       padding: 10px 5px; }
+    footer ul li a:hover {
+      color: purple;
+      text-shadow: 0px 1px  purple;
+      transition: all 100ms; }
 
 @media only screen and (min-width: 900px) {
   footer ul {
@@ -396,17 +406,34 @@ main {
   flex-direction: column;
   margin: auto;
   align-items: center;
-  padding: 125px 0; }
+  padding: 109px 0; }
   main > p {
     text-align: center;
     font-size: 1.1em;
     margin: 10px; }
-  main .row {
+  main #position-block {
     margin: 0 10px; }
   main #container {
     display: flex;
     flex-direction: column;
-    padding: 0; }
+    padding: 0;
+    margin-top: 0; }
+    main #container article.empty-page {
+      background-color: #f3e8f0;
+      height: 400px;
+      width: auto; }
+      main #container article.empty-page p {
+        display: block;
+        background-color: white;
+        padding: 20px;
+        font-size: 1em;
+        text-align: center; }
+      main #container article.empty-page i {
+        font-size: 7em;
+        color: purple;
+        text-align: center;
+        width: 100%;
+        padding: 50px; }
     main #container img {
       -o-object-fit: cover;
          object-fit: cover;
@@ -434,7 +461,8 @@ main {
     flex-direction: column;
     background-color: #f3e8f0;
     max-width: 360px;
-    padding: 0; }
+    padding: 0;
+    margin-top: 20px; }
     main #resume thead {
       padding: 5px;
       border-bottom: 1px solid lightgray;
@@ -449,56 +477,87 @@ main {
       background-color: #fcf9f9;
       border-bottom: 1px solid #f1f1f1; }
       main #resume tbody tr {
-        text-align: left;
-        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 5px;
         border-bottom: 1px solid lightgray; }
-        main #resume tbody tr th {
+        main #resume tbody tr th, main #resume tbody tr td {
           padding: 5px; }
     main #resume tfoot #logo-table {
       width: 30%;
       height: auto; }
-  main .bg-form-container {
+  main form#loginForm {
     background-color: #f3e8f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
     max-width: 360px;
-    margin-top: 30px; }
-    main .bg-form-container h3 {
+    margin-top: 30px;
+    padding-top: 10px; }
+    main form#loginForm h3 {
       display: block;
-      border-bottom: 1px solid black;
-      padding: 20px 0; }
-    main .bg-form-container form {
-      padding-top: 10px; }
-      main .bg-form-container form button {
-        display: flex;
-        flex-direction: column;
-        background-color: purple;
+      border-bottom: 2px solid white;
+      padding: 10px 5px;
+      font-size: 1.5em; }
+    main form#loginForm div {
+      font-weight: bold;
+      border: 3px solid white;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 10px 5px;
+      height: 60px; }
+      main form#loginForm div:hover {
+        border: 3px solid purple;
+        transition: all 250ms; }
+      main form#loginForm div input {
         border: none;
-        color: white;
-        align-items: center;
-        justify-content: center;
-        padding: 5px;
-        height: 40px;
-        width: 100%;
-        font-size: 1.3em;
-        font-weight: bold;
+        height: 30px;
+        margin-top: 10px; }
+      main form#loginForm div small {
+        display: block;
+        font-size: 0.7em;
+        font-weight: lighter;
+        padding-top: 10px;
+        z-index: 3;
+        width: 100%; }
+    main form#loginForm button {
+      display: flex;
+      flex-direction: column;
+      background-color: purple;
+      border: none;
+      color: white;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 5px;
+      height: 40px;
+      font-size: 1.3em;
+      font-weight: bold;
+      transition: all 500ms; }
+      main form#loginForm button:hover {
+        opacity: 0.8;
+        box-shadow: 3px 7px 8px 1px #f3e8f0;
         transition: all 500ms; }
-        main .bg-form-container form button:hover {
-          opacity: 0.8;
-          box-shadow: 3px 7px 8px 1px #f3e8f0;
-          transition: all 500ms; }
 
 @media only screen and (min-width: 900px) {
-  main .row {
+  main #position-block {
     display: flex;
     flex-direction: row;
     width: 100%;
     max-width: 880px;
     margin: 50px auto; }
-    main .row .desktop-media {
+    main #position-block .desktop-media {
       margin-top: 20px; }
-    main .row #container {
-      min-height: 860px; }
-      main .row #container article {
+    main #position-block #container {
+      min-height: 965px; }
+      main #position-block #container article {
+        margin-top: 10px; }
+      main #position-block #container article.empty-page {
+        width: 400px;
         margin: 20px auto; }
-      main .row #container h2 {
+      main #position-block #container h2 {
         padding: 30px 15px; } }
 

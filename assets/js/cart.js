@@ -1,5 +1,4 @@
 import * as index from "./index"; // IMPORT GLOBAL SYNTAX
-import { getCart } from "./index"; // SPECIFIC IMPORT SYNTAX
 
 /****************************************************
  ************* RENDER CART IN HTML ******************
@@ -7,7 +6,10 @@ import { getCart } from "./index"; // SPECIFIC IMPORT SYNTAX
 function renderCart() {
   let container = document.getElementById("container");
   let content = "";
-  getCart().forEach((element) => {
+  if (index.getCart().length === 0) {
+    emptyCart();
+  }
+  index.getCart().forEach((element) => {
     content +=
       `
         <article>
@@ -22,7 +24,6 @@ function renderCart() {
       `</h3>
             <p>` +
       index.priceToEuros(element.price) +
-      " €" +
       `</p>
             <p>` +
       element.description +
@@ -65,7 +66,7 @@ function renderAmount() {
   let container = document.getElementById("resume");
   let content =
     `
-  <table>
+  
   <thead>
     <tr>
       <th>Résumé</th>
@@ -73,36 +74,34 @@ function renderAmount() {
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th>Articles</th>
+    <tr colspan="2">
+      <th>Articles:</th>
       <td><span class="cart-qty">` +
     index.getCartQuantity() +
     `</span></td>
     </tr>
-    <tr>
-      <th>Livraison</th>
+    <tr colspan="2">
+      <th>Livraison:</th>
       <td>` +
     index.delivery +
     `</td>
     </tr>
-    <tr>
+    <tr colspan="2">
       <th>TVA:</th>
       <td>` +
-    index.cartPourcent +
+    index.cartPercent +
     `%</td>
     </tr>
-    <tr>
+    <tr colspan="2">
       <th>Total HT:</th>
       <td>` +
-    index.getTotalCartHT(20) +
-    " €" +
+    index.priceToEuros(index.getTotalCartHT()) +
     `</td>
     </tr>
-    <tr>
+    <tr colspan="2">
       <th>Total TTC:</th>
       <td>` +
-    index.getTotalCartTTC() +
-    " €" +
+    index.priceToEuros(index.getTotalCartTTC()) +
     `</td>
     </tr>
   </tbody>
@@ -111,10 +110,24 @@ function renderAmount() {
       <img id="logo-table" src="../assets/img/Logo.png" alt="Logo de Orinoco" />
     </th>
   </tfoot>
-</table>
+
 
     `;
   container.innerHTML += content;
 }
 
 renderAmount();
+
+function emptyCart() {
+  let emptyMessage = `
+    <article class="empty-page">
+    <a href="../index.html" title="Cliquez pour voir les articles">
+    <p><strong>Votre panier est vide.</strong></br>N'oubliez pas de séléctionner un article pour le voir apparaitre ici</p>
+    <i class="far fa-sad-cry"></i></a>
+    </article>
+  `;
+  document.querySelector("aside").style.display = "none";
+  document.querySelector("h2").style.textAlign = "center";
+  document.querySelector("#container");
+  container.insertAdjacentHTML("beforeend", emptyMessage);
+}

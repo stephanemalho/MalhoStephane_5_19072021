@@ -71,59 +71,67 @@
       <!-- Animation loader-->
       <div class="fixed">Orinoco</div>
     </div>
+    -->
     <main>
       <h1>Orinoco</h1>
       <p>
         Organisez votre panier, et faites vous livrer les produits dans les
         meilleurs délais
       </p>
-      <div class="row">
+      <div id="position-block">
         <section id="container">
           <h2>Panier d'achats</h2>
-          <!-- <div class="empty-card"><a href="../index.html"><p>Trop triste<i class="fas fa-sad-cry"></i> d'être vide</p></a></div> -->
           <!-- cart.js => renderCart() -->
         </section>
-        <div class="desktop-media">
-          <aside id="resume">
+        <aside>
+          <table id="resume">
             <!-- cart.js => renderAmount() -->
-          </aside>
-          <div class="bg-form-container">
-            <section id="form-submit">
-              <h3>Adresse de Livraison</h3>
-              <form>
-                <div>
-                  <label for="name">Nom</label>
-                  <input id="name" autofocus required />
-                </div>
-                <div>
-                  <label for="first-name">Prénom</label>
-                  <input id="first-name" class="form" required />
-                </div>
-                <div>
-                  <label for="postal-adresse">Adresse postale</label>
-                  <input id="postal-adresse" type="search" required />
-                </div>
-                <div>
-                  <label for="input">Ville</label>
-                  <input id="input" type="search" required/>
-                </div>
-                <div>
-                  <label for="postal-code">code postal</label>
-                  <input id="postal-code" type="search" required/>
-                </div>
-                <div>
-                  <label for="phone">Téléphone</label>
-                  <input id="phone" type="tel" required/>
-                </div>
-                <div>
-                  <label for="email"> Adresse email </label>
-                  <input id="email" type="email" required />
-                </div>
-                <button class="btn-form-submit" type="submit">Envoyer</button>
-              </form>
-            </section>
-          </div>
-        </div>
+          </table>
+          <form id="loginForm" action="XXX.php" method="post">
+            <h3>Adresse de Livraison</h3>
+            <!-- NAME -->
+            <div>
+              <label for="name">Nom:</label>
+              <input id="name" name="name" placeholder="Votre nom" autofocus required />
+            </div>
+            <!--FIRST NAME-->
+            <div>
+              <label for="first-name">Prénom:</label>
+              <input id="first-name" name="first-name" class="form" placeholder="Votre prénom" required />
+            </div>
+            <!--POSTAL ADRESS-->
+            <div>
+              <label for="postal-adresse">Adresse postale:</label>
+              <input id="postal-adresse" name="postal-adresse" placeholder="Votre adresse postal" required />
+            </div>
+            <!--CITY-->
+            <div>
+              <label for="city">Ville:</label>
+              <input id="city" name="city" placeholder="Votre ville" required />
+              <small><!--validation.js => validCity--></small>
+            </div>
+            <!--POSTAL CODE-->
+            <div>
+              <label for="postalCode">Code postal:</label>
+              <input id="postalCode" name="postalCode" placeholder="Votre code postal" required />
+              <small><!--validation.js => validPostalCode--></small>
+            </div>
+            <!--PHONE-->
+            <div>
+              <label for="tel">Téléphone:</label>
+              <input id="tel" name="tel" type="tel" placeholder="Ex: 06.01.01.01.01" required />
+              <small><!--validation.js => validTel--></small>
+            </div>
+            <!--MAIL ADRESS-->
+            <div>
+              <label for="email">Adresse email: </label>
+              <input id="email" name="email" type="email" placeholder="Ex: un.exemple@test.com" required />
+              <small><!--validation.js => validEmail--></small>
+            </div>
+            <!--SUBMIT BUTTON-->
+            <button class="btn-form-submit" type="submit">Envoyer</button>
+          </form>
+        </aside>
       </div>
     </main>
     <footer>
@@ -135,5 +143,6 @@
       <p>&copy;2021 Orinoco Inc.</p>
     </footer>
     <script src="../assets/dist/js/cart.js"></script>
+    <script src="../assets/dist/js/validation.js"></script>
   </body>
 </html>

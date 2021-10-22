@@ -51,7 +51,6 @@ function renderProducts(products, category) {
               />
               <span>` +
       index.priceToEuros(element.price) +
-      " €" +
       `</span>
               <figcaption>
                 <h3>` +

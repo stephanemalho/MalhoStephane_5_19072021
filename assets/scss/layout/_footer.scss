@@ -24,6 +24,11 @@ footer {
     li {
       padding: 10px 5px;
     }
+    li a:hover {
+      color: purple;
+      text-shadow: 0px 1px  purple;
+      transition: all 100ms;
+    }
   }
 }
 @media only screen and (min-width: 900px) {

@@ -36,7 +36,7 @@ function renderProduct(product) {
       alt="appareil photo ancien avec zoom"
     />
     <span>` +
-    index.priceToEuros(product.price) + " €" +
+    index.priceToEuros(product.price) +
     `</span>
     <figcaption>
       <h3>` +
@@ -154,13 +154,4 @@ export function getOptionsType() {
   if (category === "cameras") {
     return "lenses"; // RETURN LENSES OF CATEGORY
   }
-
-  // PERMISSION TO ADD OTHER TYPE OF PRODUCTS
-
-  // if (category === "teddies") {
-  //   return "colors";
-  // }
-  // if (category === "fournitures") {
-  //   return "varnish";
-  // }
 }

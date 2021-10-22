@@ -1,9 +1,9 @@
-export let cartPourcent = 20; // renderCart percent Option
+export let cartPercent = 20; // renderCart percent Option
 export let delivery = "Gratuite"; // renderCart delivery Option
 
 export function priceToEuros(price) {
   price = price / 100;
-  return price; // TO DIVIDE PRICE AND RETURNED IT TO DECIMAL EURO
+  return price +" €"; // TO DIVIDE PRICE AND RETURNED IT TO DECIMAL EURO
 }
 
 export function getCart() {
@@ -26,7 +26,7 @@ export function getCartQuantity() {
     totalQty += element.qty;
   });
 
-  return totalQty; // TO RETURN ALL QUANTITY OF element
+  return totalQty; // TO RETURN ALL QUANTITY OF THE CART
 }
 
 // TO SELECT EACH ELEMENTS WITH THE CLASS NAMED "cart-qty"
@@ -50,20 +50,17 @@ export function getTotalCartTTC() {
   }
   let totalAmount = 0;
   cart.map((element) => {
-    let calculElement = element.qty * element.price;
-    totalAmount += calculElement;
+    let calculTotalElement = element.qty * element.price;
+    totalAmount += calculTotalElement;
   });
-  return priceToEuros(totalAmount); 
+  return totalAmount; 
 }
 
 /*******************************************
  *********** GET PRICE WITHOUT *************
  *********** TAX ***************************
  *******************************************/
-export function getTotalCartHT(e) {
-  // console.log(typeof e);
-  let HTprice = getTotalCartTTC() * (e);
-  let totalHT = getTotalCartTTC() - priceToEuros(HTprice);
-  return totalHT;
-  // return priceToEuros(HTprice);
+export function getTotalCartHT() {
+
+  return getTotalCartTTC() - (getTotalCartTTC() * (cartPercent/100));
 }
