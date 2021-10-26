@@ -23,7 +23,11 @@ module.exports = {
       "/assets/js/index.js",
       "/assets/js/confirmation.js",
     ],
-    validation: ["/assets/js/index.js", "/assets/js/validation.js"],
+    validation: [
+      "/assets/scss/pages/cart.scss",
+      "/assets/js/index.js",
+      "/assets/js/validation.js"],
+
   },
   module: {
     rules: [

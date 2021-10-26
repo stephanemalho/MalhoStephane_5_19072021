@@ -1,5 +1,10 @@
 let form = document.querySelector("#loginForm");
 let btnForm = document.querySelector("button");
+let regularStringsRegExp =
+  "^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ._-s]{5,60}$";
+
+//redirect page form
+let newLocation = "../assets/dist/confirmation.js";
 
 // Add event in email form
 form.email.addEventListener("change", function () {
@@ -13,13 +18,21 @@ form.tel.addEventListener("change", function () {
 form.postalCode.addEventListener("change", function () {
   validPostalCode(this);
 });
-form.city.addEventListener("change", function () {
-  validCity(this);
+// run checkIfRegExp in these 3 forms
+form.city.addEventListener("change", function (element) {
+  checkIfRegExp(
+    "^(?:[A-Za-z ]{2,}(?:(.s|'ss|s?-s?|s)?(?=[A-Za-z]+))){1,2}(?:[A-Za-z]+)?$",
+    element.target,
+    "Ville invalide"
+  );
 });
-
-// export function runRegex(regex){
-
-// }
+form.name.addEventListener("change", function (element) {
+  checkIfRegExp(regularStringsRegExp, element.target, "Nom invalide");
+});
+form.firstName.addEventListener("change", function (element) {
+  checkIfRegExp(regularStringsRegExp, element.target, "Prénom invalide");
+});
+//^(?:[A-Za-z]{2,}(?:(\.\s|'s\s|\s?-\s?|\s)?(?=[A-Za-z]+))){1,2}(?:[A-Za-z]+)?$
 
 /***************************************************
  ***************** Send values from ****************
@@ -28,17 +41,22 @@ form.city.addEventListener("change", function () {
 const getForm = () => {
   btnForm.addEventListener("click", (e) => {
     e.preventDefault();
-    // create object with form values
-    if(validEmail(form.email) && validTel(form.tel)) {
+    //Check if email and tel are ok before submit
+    if (
+      validEmail(form.email) &&
+      validTel(form.tel) &&
+      validPostalCode(form.postalCode)
+    ) {
       const newLocal = btnForm.addEventListener.submit;
       newLocal;
       form.submit();
     } else {
-      e.preventDefault();
+      e.preventDefault(); // don't submit the form
     }
+    // create object with form values
     const formValues = {
       name: document.querySelector("#name").value,
-      firstName: document.querySelector("#first-name").value,
+      firstName: document.querySelector("#firstName").value,
       PostalAdress: document.querySelector("#postal-adresse").value,
       city: document.querySelector("#city").value,
       PostalCode: document.querySelector("#postalCode").value,
@@ -63,10 +81,10 @@ function validEmail(inputEmail) {
   //console.log(testEmail);
   let small = inputEmail.nextElementSibling;
   if (testEmail) {
-    small.innerHTML = "Email valide";
-    small.style.color = "green";
+    small.style.display = "none";
     return true;
   } else {
+    small.style.display = "inline";
     small.innerHTML = "Email non valide";
     small.style.color = "red";
     return false;
@@ -86,14 +104,14 @@ function validTel(inputTel) {
     msg = "Téléphone valide";
     valid = true;
   } else {
-    msg = "entrez un numéro de 10 chiffres (ou +33 et 9 chiffres)";
+    msg = "entrez un numéro de 10 chiffres (ou code pays sans 0)";
   }
   let small = inputTel.nextElementSibling;
   if (valid) {
-    small.innerHTML = msg;
-    small.style.color = "green";
+    small.style.display = "none";
     return true;
   } else {
+    small.style.display = "inline";
     small.innerHTML = msg;
     small.style.color = "red";
     return false;
@@ -119,34 +137,87 @@ function validPostalCode(inputPostalCode) {
   }
   let small = inputPostalCode.nextElementSibling;
   if (valid) {
-    small.innerHTML = msg;
-    small.style.color = "green";
+    small.style.display = "none";
     return true;
   } else {
+    small.style.display = "inline";
     small.innerHTML = msg;
     small.style.color = "red";
     return false;
   }
 }
 /***********************************************
- ************ validation for *******************
- ************   City regexp  *******************
+ ************ validation all *******************
+ ************  regexp with   *******************
+ ************  only strings  *******************
  ***********************************************/
-function validCity(inputCity) {
-  // create Regexp for email
-  let cityRegExp = new RegExp(
-    "^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$"
-  );
-  let testCity = cityRegExp.test(inputCity.value);
-  //console.log(testEmail);
-  let small = inputCity.nextElementSibling;
-  if (testCity) {
-    small.innerHTML = "Ville valide";
-    small.style.color = "green";
+function checkIfRegExp(regex, input, message) {
+  let testRegex = new RegExp(regex).test(input.value);
+  let small = input.nextElementSibling;
+
+  if (testRegex) {
+    small.innerHTML = " ";
     return true;
   } else {
-    small.innerHTML = "Ville non valide";
+    small.innerHTML = message;
     small.style.color = "red";
     return false;
   }
 }
+
+let defaultForm = true;
+function changeDefaultForm(boolean) {
+  defaultForm = boolean;
+}
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  console.log("test1");
+  //let btn = document.getElementsByClassName("btn-form-submit");
+  changeDefaultForm(true);
+  if (
+    !checkIfRegExp(
+      "^(?:[A-Za-z ]{2,}(?:(.s|'ss|s?-s?|s)?(?=[A-Za-z]+))){1,2}(?:[A-Za-z]+)?$",
+      form.city,
+      "Ville invalide"
+    )
+  ) {
+    changeDefaultForm = false;
+  }
+  if (!checkIfRegExp("^[0-9]{5,5}$", form.postalCode, "code postal invalide")) {
+    changeDefaultForm(false);
+  }
+  if (
+    !checkIfRegExp(
+      "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$",
+      "g",
+      form.email,
+      "email invalide"
+    )
+  ) {
+    changeDefaultForm(false);
+  }
+  if (
+    !checkIfRegExp("^((+)33|0|0033)[1-9](d{2}){4}$", form.tel, "tel invalide")
+  ) {
+    changeDefaultForm(false);
+  }
+  if (changeDefaultForm) {
+    //window.location = newLocation;
+    document.getElementById("loginForm").onclick = function (e) {
+    e.location.href = newLocation;
+    };
+    // function redirect()
+    // {
+    // window.location(newLocation);
+    // }
+    //redirect();
+    this.submit();
+    
+    //Headers.location = newLocation;
+    //window.location = newLocation;
+  }
+});
+
+// function redirect() {
+//   window.location(newLocation);
+// }

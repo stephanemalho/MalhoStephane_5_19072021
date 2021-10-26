@@ -128,6 +128,6 @@ function emptyCart() {
   `;
   document.querySelector("aside").style.display = "none";
   document.querySelector("h2").style.textAlign = "center";
-  document.querySelector("#container");
+  //document.querySelector("#container");
   container.insertAdjacentHTML("beforeend", emptyMessage);
 }
