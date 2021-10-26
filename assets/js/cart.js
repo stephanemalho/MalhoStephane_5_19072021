@@ -1,4 +1,5 @@
 import * as index from "./index"; // IMPORT GLOBAL SYNTAX
+import { validForm } from "./validation";
 
 /****************************************************
  ************* RENDER CART IN HTML ******************
@@ -131,3 +132,12 @@ function emptyCart() {
   //document.querySelector("#container");
   container.insertAdjacentHTML("beforeend", emptyMessage);
 }
+
+function submitCart () {
+  validForm();
+  
+}
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  submitCart();
+});

@@ -97,7 +97,7 @@
                 name="name"
                 placeholder="Votre nom"
                 autofocus
-                required
+                
               />
               <small><!--validation.js => checkIfRegExp()--></small>
             </div>
@@ -109,7 +109,7 @@
                 name="firstName"
                 class="form"
                 placeholder="Votre prénom"
-                required
+                
               />
               <small><!--validation.js => checkIfRegExp()--></small>
             </div>
@@ -120,14 +120,14 @@
                 id="postal-adresse"
                 name="postal-adresse"
                 placeholder="Votre adresse postal"
-                required
+                
               />
               <small><!--validation.js => checkIfRegExp()--></small>
             </div>
             <!--CITY-->
             <div>
               <label for="city">Ville:</label>
-              <input id="city" name="city" placeholder="Votre ville" required />
+              <input id="city" name="city" placeholder="Votre ville" />
               <small><!--validation.js => checkIfRegExp()--></small>
             </div>
             <!--POSTAL CODE-->
@@ -137,7 +137,7 @@
                 id="postalCode"
                 name="postalCode"
                 placeholder="Votre code postal"
-                required
+                
               />
               <small><!--validation.js => validPostalCode--></small>
             </div>
@@ -149,7 +149,7 @@
                 name="tel"
                 type="tel"
                 placeholder="Ex: 06 01 01 01 01"
-                required
+                
               />
               <small><!--validation.js => validTel() --></small>
             </div>
@@ -161,12 +161,12 @@
                 name="email"
                 type="email"
                 placeholder="Ex: un.exemple@test.com"
-                required
+                
               />
               <small><!--validation.js => validEmail() --></small>
             </div>
             <!--SUBMIT BUTTON-->
-            <button class="btn-form-submit" type="submit" <!--onClick="redirect()"-->   >Envoyer</button>
+            <button class="btn-form-submit" type="submit">Envoyer</button>
           </form>
         </aside>
       </div>
