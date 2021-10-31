@@ -1,6 +1,9 @@
 import * as index from "./index"; // IMPORT GLOBAL SYNTAX
 import { validForm } from "./validation";
 
+let newLocation = "../pages/confirmation.html";
+
+
 /****************************************************
  ************* RENDER CART IN HTML ******************
  ****************************************************/
@@ -119,6 +122,7 @@ function renderAmount() {
 
 renderAmount();
 
+// send this article in cart.html if cart is empty
 function emptyCart() {
   let emptyMessage = `
     <article class="empty-page">
@@ -127,17 +131,38 @@ function emptyCart() {
     <i class="far fa-sad-cry"></i></a>
     </article>
   `;
-  document.querySelector("aside").style.display = "none";
-  document.querySelector("h2").style.textAlign = "center";
+  document.querySelector("aside").style.display = "none"; // mask article and resume
+  document.querySelector("h2").style.textAlign = "center"; // change h2 position
   //document.querySelector("#container");
-  container.insertAdjacentHTML("beforeend", emptyMessage);
+  container.insertAdjacentHTML("beforeend", emptyMessage); // inser adjacent Html of emptyMessage() in the cart.html page
 }
 
+
+/***************************************************
+ ***************** Send values from ****************
+ ************ Formular to local storage ************
+ ***************************************************/
 function submitCart () {
-  validForm();
-  
+  if(validForm())  { /* if the form is valid */ 
+    // create contact object and save it in local storage
+    const formValues = {
+      name: document.querySelector("#name").value,
+      firstName: document.querySelector("#firstName").value,
+      PostalAdress: document.querySelector("#postalAdress").value,
+      city: document.querySelector("#city").value,
+      PostalCode: document.querySelector("#postalCode").value,
+      phone: document.querySelector("#tel").value,
+      email: document.querySelector("#email").value,
+    };
+    localStorage.setItem("formValues", JSON.stringify(formValues)); //make object in json format in the local storage
+     // redirect to the confirmation page
+    window.location = newLocation;
+  }
 }
 document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault();
   submitCart();
 });
+
+
+

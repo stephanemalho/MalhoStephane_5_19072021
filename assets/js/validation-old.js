@@ -67,102 +67,7 @@ const getForm = () => {
   });
 };
 getForm();
-/***********************************************
- ************ validation for *******************
- ************  Email regexp  *******************
- ***********************************************/
-function validEmail(inputEmail) {
-  // create Regexp for email
-  let emailRegExp = new RegExp(
-    "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$"
-  );
-  let testEmail = emailRegExp.test(inputEmail.value);
-  //console.log(testEmail);
-  let small = inputEmail.nextElementSibling;
-  if (testEmail) {
-    small.style.display = "none";
-    return true;
-  } else {
-    small.style.display = "inline";
-    small.innerHTML = "Email non valide";
-    small.style.color = "red";
-    return false;
-  }
-}
-/***********************************************
- ************ validation for *******************
- ************   tel regexp   *******************
- ***********************************************/
-function validTel(inputTel) {
-  // create regexp for tel
-  let msg;
-  let valid = false;
-  if (/[a-zA-Z-_]/.test(inputTel.value)) {
-    msg = "Le numéro doit contenir uniquement des chiffres";
-  } else if (/^((\+)33|0|0033)[1-9](\d{2}){4}$/.test(inputTel.value)) {
-    msg = "Téléphone valide";
-    valid = true;
-  } else {
-    msg = "entrez un numéro de 10 chiffres (ou code pays sans 0)";
-  }
-  let small = inputTel.nextElementSibling;
-  if (valid) {
-    small.style.display = "none";
-    return true;
-  } else {
-    small.style.display = "inline";
-    small.innerHTML = msg;
-    small.style.color = "red";
-    return false;
-  }
-}
 
-/***********************************************
- ************ validation for *******************
- ************   postalCode   *******************
- ************     regexp     *******************
- ***********************************************/
-function validPostalCode(inputPostalCode) {
-  //console.log(telRegExp);
-  let msg;
-  let valid = false;
-  if (/[a-zA-Z-_]/.test(inputPostalCode.value)) {
-    msg = "Le code postal doit contenir uniquement des chiffres";
-  } else if (/^[0-9]{5,5}$/.test(inputPostalCode.value)) {
-    msg = "Code postal valide";
-    valid = true;
-  } else {
-    msg = "Le code postal doit contenir 5 chiffres";
-  }
-  let small = inputPostalCode.nextElementSibling;
-  if (valid) {
-    small.style.display = "none";
-    return true;
-  } else {
-    small.style.display = "inline";
-    small.innerHTML = msg;
-    small.style.color = "red";
-    return false;
-  }
-}
-/***********************************************
- ************ validation all *******************
- ************  regexp with   *******************
- ************  only strings  *******************
- ***********************************************/
-function checkIfRegExp(regex, input, message) {
-  let testRegex = new RegExp(regex).test(input.value);
-  let small = input.nextElementSibling;
-
-  if (testRegex) {
-    small.innerHTML = " ";
-    return true;
-  } else {
-    small.innerHTML = message;
-    small.style.color = "red";
-    return false;
-  }
-}
 
 let defaultForm = true;
 function changeDefaultForm(boolean) {
@@ -205,18 +110,6 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     document.getElementById("loginForm").onclick = function (e) {
     e.location.href = newLocation;
     };
-    // function redirect()
-    // {
-    // window.location(newLocation);
-    // }
-    //redirect();
     this.submit();
-    
-    //Headers.location = newLocation;
-    //window.location = newLocation;
   }
 });
-
-// function redirect() {
-//   window.location(newLocation);
-// }

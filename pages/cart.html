@@ -75,7 +75,7 @@
     <main>
       <h1>Orinoco</h1>
       <p>
-        Organisez votre panier, et faites vous livrer les produits dans les
+        Confirmer votre panier, et faites vous livrer les produits dans les
         meilleurs délais
       </p>
       <div id="position-block">
@@ -115,10 +115,10 @@
             </div>
             <!--POSTAL ADRESS-->
             <div>
-              <label for="postal-adresse">Adresse postale:</label>
+              <label for="postalAdress">Adresse postale:</label>
               <input
-                id="postal-adresse"
-                name="postal-adresse"
+                id="postalAdress"
+                name="postalAdress"
                 placeholder="Votre adresse postal"
                 
               />
@@ -128,7 +128,7 @@
             <div>
               <label for="city">Ville:</label>
               <input id="city" name="city" placeholder="Votre ville" />
-              <small><!--validation.js => checkIfRegExp()--></small>
+              <small></small>
             </div>
             <!--POSTAL CODE-->
             <div>
@@ -139,7 +139,7 @@
                 placeholder="Votre code postal"
                 
               />
-              <small><!--validation.js => validPostalCode--></small>
+              <small></small>
             </div>
             <!--PHONE-->
             <div>
@@ -149,9 +149,8 @@
                 name="tel"
                 type="tel"
                 placeholder="Ex: 06 01 01 01 01"
-                
               />
-              <small><!--validation.js => validTel() --></small>
+              <small></small>
             </div>
             <!--MAIL ADRESS-->
             <div>
@@ -161,7 +160,6 @@
                 name="email"
                 type="email"
                 placeholder="Ex: un.exemple@test.com"
-                
               />
               <small><!--validation.js => validEmail() --></small>
             </div>

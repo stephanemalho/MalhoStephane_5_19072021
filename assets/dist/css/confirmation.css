@@ -47,12 +47,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.text-success {
-  color: green; }
-
-.text-fail {
-  color: red; }
-
 * {
   font-family: verdana, monospace, sans-serif; }
 
@@ -400,4 +394,60 @@ header {
     font-weight: bold;
     color: purple;
     z-index: 1000; }
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  padding-top: 125px; }
+  main > p {
+    text-align: center;
+    font-size: 1.1em;
+    margin: 10px; }
+
+#container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-top: 0; }
+  #container article.empty-page {
+    background-color: #f3e8f0;
+    height: 400px;
+    width: 300px; }
+    #container article.empty-page p {
+      display: block;
+      background-color: white;
+      padding: 20px;
+      font-size: 1em;
+      text-align: center; }
+    #container article.empty-page i {
+      font-size: 7em;
+      color: purple;
+      text-align: center;
+      width: 100%;
+      padding: 50px; }
+  #container img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100px;
+    height: 70px; }
+  #container h2 {
+    padding: 30px 0;
+    text-align: left; }
+  #container figure {
+    position: relative; }
+    #container figure i {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      color: white;
+      background-color: #bb2c2c;
+      height: 25px;
+      width: 25px;
+      text-align: center;
+      padding: 4px; }
+    #container figure figcaption p {
+      padding: 3px 0; }
 

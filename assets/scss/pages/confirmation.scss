@@ -1,1 +1,66 @@
 @import "../main.scss";
+main {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  padding-top: 125px;
+  > p {
+    text-align: center;
+    font-size: 1.1em;
+    margin: 10px;
+  }
+}
+#container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-top: 0;
+  article.empty-page {
+    background-color: #f3e8f0;
+    height: 400px;
+    width: 300px;
+    p {
+      display: block;
+      background-color: white;
+      padding: 20px;
+      font-size: 1em;
+      text-align: center;
+    }
+    i {
+      font-size: 7em;
+      color: purple;
+      text-align: center;
+      width: 100%;
+      padding: 50px;
+    }
+  }
+  img {
+    object-fit: cover;
+    width: 100px;
+    height: 70px;
+  }
+  h2 {
+    padding: 30px 0;
+    text-align: left;
+  }
+
+  figure {
+    position: relative;
+    i {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      color: white;
+      background-color: rgb(187, 44, 44);
+      height: 25px;
+      width: 25px;
+      text-align: center;
+      padding: 4px;
+    }
+    figcaption p {
+      padding: 3px 0;
+    }
+  }
+}
