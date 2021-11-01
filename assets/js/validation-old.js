@@ -68,7 +68,6 @@ const getForm = () => {
 };
 getForm();
 
-
 let defaultForm = true;
 function changeDefaultForm(boolean) {
   defaultForm = boolean;
@@ -108,7 +107,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   if (changeDefaultForm) {
     //window.location = newLocation;
     document.getElementById("loginForm").onclick = function (e) {
-    e.location.href = newLocation;
+      e.location.href = newLocation;
     };
     this.submit();
   }

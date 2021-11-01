@@ -3,7 +3,7 @@ export let delivery = "Gratuite"; // renderCart delivery Option
 
 export function priceToEuros(price) {
   price = price / 100;
-  return price +" €"; // TO DIVIDE PRICE AND RETURNED IT TO DECIMAL EURO
+  return price + " €"; // TO DIVIDE PRICE AND RETURNED IT TO DECIMAL EURO
 }
 
 export function getCart() {
@@ -53,7 +53,7 @@ export function getTotalCartTTC() {
     let calculTotalElement = element.qty * element.price;
     totalAmount += calculTotalElement;
   });
-  return totalAmount; 
+  return totalAmount;
 }
 
 /*******************************************
@@ -61,6 +61,5 @@ export function getTotalCartTTC() {
  *********** TAX ***************************
  *******************************************/
 export function getTotalCartHT() {
-
-  return getTotalCartTTC() - (getTotalCartTTC() * (cartPercent/100));
+  return getTotalCartTTC() - getTotalCartTTC() * (cartPercent / 100);
 }

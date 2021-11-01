@@ -3,7 +3,6 @@ import { validForm } from "./validation";
 
 let newLocation = "../pages/confirmation.html";
 
-
 /****************************************************
  ************* RENDER CART IN HTML ******************
  ****************************************************/
@@ -137,32 +136,28 @@ function emptyCart() {
   container.insertAdjacentHTML("beforeend", emptyMessage); // inser adjacent Html of emptyMessage() in the cart.html page
 }
 
-
 /***************************************************
  ***************** Send values from ****************
  ************ Formular to local storage ************
  ***************************************************/
-function submitCart () {
-  if(validForm())  { /* if the form is valid */ 
+function submitCart() {
+  if (validForm()) {
+    /* if the form is valid */
     // create contact object and save it in local storage
     const formValues = {
       name: document.querySelector("#name").value,
       firstName: document.querySelector("#firstName").value,
-      PostalAdress: document.querySelector("#postalAdress").value,
+      PostalAdress: document.querySelector("#address").value,
       city: document.querySelector("#city").value,
       PostalCode: document.querySelector("#postalCode").value,
       phone: document.querySelector("#tel").value,
       email: document.querySelector("#email").value,
     };
     localStorage.setItem("formValues", JSON.stringify(formValues)); //make object in json format in the local storage
-     // redirect to the confirmation page
-    window.location = newLocation;
+    window.location = newLocation; // redirect to the confirmation page
   }
 }
 document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault();
   submitCart();
 });
-
-
-
