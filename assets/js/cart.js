@@ -154,6 +154,8 @@ function submitCart() {
       email: document.querySelector("#email").value,
     };
     localStorage.setItem("formValues", JSON.stringify(formValues)); //make object in json format in the local storage
+    makeOrder(formValues);
+
     window.location = newLocation; // redirect to the confirmation page
   }
 }
@@ -161,3 +163,36 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault();
   submitCart();
 });
+
+function makeOrder(formValues) {
+  let cart = index.getCart();
+  let productsToSend = [];
+  cart.forEach((product) => {
+    productsToSend.push(product._id);
+    console.log(product._id);
+  });
+  let formatData = {
+    contact: formValues,
+    products: productsToSend,
+  };
+  fetch("http://localhost:3000/api/cameras/order", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formatData),
+  })
+  .then(function(res) {
+    if (res.ok) {
+      console.log(res.json);
+      return res.json();
+    }
+  })
+  .then(function(value) {
+      
+        console.log(value);
+  });
+  ;
+
+}
