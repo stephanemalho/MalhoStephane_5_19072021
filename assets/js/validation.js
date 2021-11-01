@@ -10,10 +10,12 @@ export function checkIfRegExp(regex, input, message) {
   let small = input.nextElementSibling;
   if (testRegex) {
     small.innerHTML = "";
+    input.style.border = "1px solid green";
     return true;
   } else {
     small.innerHTML = message;
     small.style.color = "red";
+    input.style.border = "1px solid red";
     changeFormStatus(false);
     return false;
   } 
