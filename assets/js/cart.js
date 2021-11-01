@@ -147,9 +147,9 @@ function submitCart() {
     const formValues = {
       name: document.querySelector("#name").value,
       firstName: document.querySelector("#firstName").value,
-      PostalAdress: document.querySelector("#address").value,
+      address: document.querySelector("#Adress").value,
       city: document.querySelector("#city").value,
-      PostalCode: document.querySelector("#postalCode").value,
+      postalCode: document.querySelector("#postalCode").value,
       phone: document.querySelector("#tel").value,
       email: document.querySelector("#email").value,
     };
