@@ -84,7 +84,7 @@ getProduct().then((result) => {
  ****************************************************
  ****************************************************/
 
-function addToCard(product) {
+export function addToCard(product) {
   let cart = index.getCart();
 
   product.optionValue = document.getElementById("choice").value;
@@ -150,7 +150,6 @@ const toggleModal = (toDo) => {
 export function getOptionsType() {
   const url = new URL(window.location.href);
   let category = url.searchParams.get("category");
-
   if (category === "cameras") {
     return "lenses"; // RETURN LENSES OF CATEGORY
   }

@@ -97,7 +97,7 @@
                 name="name"
                 placeholder="Votre nom"
                 autofocus
-                
+                required
               />
               <small><!--validation.js => checkIfRegExp()--></small>
             </div>
@@ -109,25 +109,26 @@
                 name="firstName"
                 class="form"
                 placeholder="Votre prénom"
-                
+                required
               />
               <small><!--validation.js => checkIfRegExp()--></small>
             </div>
             <!--POSTAL ADRESS-->
             <div>
-              <label for="postalAdress">Adresse postale:</label>
+              <label for="postalAddress">Adresse postale:</label>
               <input
-                id="postalAdress"
-                name="postalAdress"
+                id="postalAddress"
+                name="postalAddress"
+                maxlength="39"
                 placeholder="Votre adresse postal"
-                
+                required
               />
               <small><!--validation.js => checkIfRegExp()--></small>
             </div>
             <!--CITY-->
             <div>
               <label for="city">Ville:</label>
-              <input id="city" name="city" placeholder="Votre ville" />
+              <input id="city" name="city" placeholder="Votre ville" required />
               <small></small>
             </div>
             <!--POSTAL CODE-->
@@ -137,7 +138,7 @@
                 id="postalCode"
                 name="postalCode"
                 placeholder="Votre code postal"
-                
+                required
               />
               <small></small>
             </div>
@@ -149,6 +150,7 @@
                 name="tel"
                 type="tel"
                 placeholder="Ex: 06 01 01 01 01"
+                required
               />
               <small></small>
             </div>
@@ -160,11 +162,12 @@
                 name="email"
                 type="email"
                 placeholder="Ex: un.exemple@test.com"
+                required
               />
               <small><!--validation.js => validEmail() --></small>
             </div>
             <!--SUBMIT BUTTON-->
-            <button class="btn-form-submit" type="submit">Envoyer</button>
+            <button class="btn-form-submit" type="submit">Passer la commande</button>
           </form>
         </aside>
       </div>
@@ -179,6 +182,5 @@
     </footer>
     <script src="../assets/dist/js/cart.js"></script>
     <script src="../assets/dist/js/validation.js"></script>
-    <script src="../assets/dist/js/confirmation.js" defer></script>
   </body>
 </html>

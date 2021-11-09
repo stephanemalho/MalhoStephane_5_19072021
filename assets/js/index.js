@@ -63,3 +63,7 @@ export function getTotalCartTTC() {
 export function getTotalCartHT() {
   return getTotalCartTTC() - getTotalCartTTC() * (cartPercent / 100);
 }
+export function addToCart() {
+  throw new Error("Function not implemented.");
+}
+

@@ -158,7 +158,7 @@ a {
       #checkCart .modal button:hover {
         opacity: 0.6;
         transition: all 500ms; }
-    #checkCart .modal a:last-child {
+    #checkCart .modal a {
       margin: 50px 0;
       height: 50px;
       border: none;
@@ -170,7 +170,7 @@ a {
       justify-content: center;
       background-color: purple;
       transition: all 500ms; }
-      #checkCart .modal a:last-child:hover {
+      #checkCart .modal a:hover {
         opacity: 0.8;
         box-shadow: 3px 7px 8px 1px #f3e8f0;
         transition: all 500ms; }
@@ -252,7 +252,6 @@ footer {
       padding: 10px 5px; }
     footer ul li a:hover {
       color: purple;
-      text-shadow: 0px 1px  purple;
       transition: all 100ms; }
 
 @media only screen and (min-width: 900px) {
@@ -395,59 +394,43 @@ header {
     color: purple;
     z-index: 1000; }
 
-main {
+section {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   margin: auto;
   align-items: center;
-  padding-top: 125px; }
-  main > p {
+  padding-top: 125px;
+  min-height: 700px; }
+  section article p {
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    font-size: 1.1em;
-    margin: 10px; }
-
-#container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 0;
-  margin-top: 0; }
-  #container article.empty-page {
-    background-color: #f3e8f0;
-    height: 400px;
-    width: 300px; }
-    #container article.empty-page p {
-      display: block;
-      background-color: white;
-      padding: 20px;
-      font-size: 1em;
-      text-align: center; }
-    #container article.empty-page i {
-      font-size: 7em;
-      color: purple;
-      text-align: center;
-      width: 100%;
-      padding: 50px; }
-  #container img {
-    -o-object-fit: cover;
-       object-fit: cover;
-    width: 100px;
-    height: 70px; }
-  #container h2 {
-    padding: 30px 0;
-    text-align: left; }
-  #container figure {
-    position: relative; }
-    #container figure i {
-      position: absolute;
-      right: 5px;
-      top: 5px;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 10px;
+    padding: 10px 0; }
+    section article p span {
+      font-size: 1.1em;
+      font-weight: lighter;
+      padding: 10px 0; }
+  section article a {
+    margin: 50px 0;
+    height: 50px;
+    border: none;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: purple;
+    transition: all 500ms; }
+    section article a:hover {
+      opacity: 0.8;
       color: white;
-      background-color: #bb2c2c;
-      height: 25px;
-      width: 25px;
-      text-align: center;
-      padding: 4px; }
-    #container figure figcaption p {
-      padding: 3px 0; }
+      box-shadow: 3px 7px 8px 1px #f3e8f0;
+      transition: all 500ms; }
 

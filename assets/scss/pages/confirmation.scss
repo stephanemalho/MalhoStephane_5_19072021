@@ -1,66 +1,47 @@
 @import "../main.scss";
-main {
+section {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   margin: auto;
   align-items: center;
   padding-top: 125px;
-  > p {
-    text-align: center;
-    font-size: 1.1em;
-    margin: 10px;
-  }
-}
-#container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 0;
-  margin-top: 0;
-  article.empty-page {
-    background-color: #f3e8f0;
-    height: 400px;
-    width: 300px;
+  min-height: 700px;
+  article {
     p {
-      display: block;
-      background-color: white;
-      padding: 20px;
-      font-size: 1em;
+      display: flex;
+      flex-direction: column;
       text-align: center;
+      font-size: 1.3em;
+      font-weight: bold;
+      margin: 10px;
+      padding: 10px 0;
+      span {
+        font-size: 1.1em;
+        font-weight: lighter;
+        padding: 10px 0;
+      }
     }
-    i {
-      font-size: 7em;
-      color: purple;
-      text-align: center;
-      width: 100%;
-      padding: 50px;
-    }
-  }
-  img {
-    object-fit: cover;
-    width: 100px;
-    height: 70px;
-  }
-  h2 {
-    padding: 30px 0;
-    text-align: left;
-  }
-
-  figure {
-    position: relative;
-    i {
-      position: absolute;
-      right: 5px;
-      top: 5px;
+    a {
+      margin: 50px 0;
+      height: 50px;
+      border: none;
       color: white;
-      background-color: rgb(187, 44, 44);
-      height: 25px;
-      width: 25px;
+      font-size: 1em;
+      font-weight: bold;
+      padding: 10px;
       text-align: center;
-      padding: 4px;
-    }
-    figcaption p {
-      padding: 3px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: purple;
+      transition: all 500ms;
+      &:hover {
+        opacity: 0.8;
+        color: white;
+        box-shadow: 3px 7px 8px 1px #f3e8f0;
+        transition: all 500ms;
+      }
     }
   }
 }

@@ -34,20 +34,11 @@ function renderCart() {
             <p>Option: ` +
       element.optionValue +
       `</p>
-            <form method="post" class="box">
-              <label for="quantity" title="quantité"
-                >Quantité: 
-                <input
-                  type="number"
-                  placeholder="1"
-                  value="` +
+            <p>quantité:
+              ` +
       element.qty +
-      `"
-                  min="1"
-                  max="9"
-                  name="quantity"
-                  id="quantity"
-                />
+      `
+                </p>
               </label>
             </form>
           </figcaption>
@@ -57,10 +48,26 @@ function renderCart() {
         `;
   });
   container.innerHTML += content;
-  // container.insertAdjacentHTML("beforeend", content);
+}
+renderCart(); // RUN THE FUNCTION
+
+/****************************************************
+ ************* DELETE CART IN HTML ******************
+ ****************************************************/
+function DeleteArticle() {
+  let trashBtn = document.querySelectorAll(".fa-trash-alt");
+  for (let i = 0; i < trashBtn.length; i++) {
+    trashBtn[i].addEventListener("click", function () {
+      
+      
+      //localStorage.removeItem("cart");
+      //window.location= "../pages/cart.html"
+      localStorage.removeItem("cart");
+    });
+  }
 }
 
-renderCart(); // RUN THE FUNCTION
+DeleteArticle();
 
 /****************************************************
  ************* RENDER AMOUNT IN HTML ****************
@@ -140,14 +147,14 @@ function emptyCart() {
  ***************** Send values from ****************
  ************ Formular to local storage ************
  ***************************************************/
-function submitCart() {
+export function submitCart() {
   if (validForm()) {
     /* if the form is valid */
     // create contact object and save it in local storage
     const formValues = {
-      name: document.querySelector("#name").value,
+      lastName: document.querySelector("#name").value,
       firstName: document.querySelector("#firstName").value,
-      address: document.querySelector("#Adress").value,
+      address: document.querySelector("#postalAddress").value,
       city: document.querySelector("#city").value,
       postalCode: document.querySelector("#postalCode").value,
       phone: document.querySelector("#tel").value,
@@ -155,8 +162,6 @@ function submitCart() {
     };
     localStorage.setItem("formValues", JSON.stringify(formValues)); //make object in json format in the local storage
     makeOrder(formValues);
-
-    window.location = newLocation; // redirect to the confirmation page
   }
 }
 document.getElementById("loginForm").addEventListener("submit", function (e) {
@@ -164,12 +169,11 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   submitCart();
 });
 
-function makeOrder(formValues) {
+const makeOrder = (formValues) => {
   let cart = index.getCart();
   let productsToSend = [];
   cart.forEach((product) => {
     productsToSend.push(product._id);
-    console.log(product._id);
   });
   let formatData = {
     contact: formValues,
@@ -183,16 +187,18 @@ function makeOrder(formValues) {
     },
     body: JSON.stringify(formatData),
   })
-  .then(function(res) {
-    if (res.ok) {
-      console.log(res.json);
-      return res.json();
-    }
-  })
-  .then(function(value) {
-      
-        console.log(value);
-  });
-  ;
-
-}
+    .then((res) => {
+      if (res.ok) {
+        console.log(res.json);
+        return res.json();
+      } else {
+        alert("une erreur est survenue");
+      }
+    })
+    .then((value) => {
+      localStorage.setItem("orderId", JSON.stringify(value.orderId));
+    })
+    .then(() => {
+      window.location = newLocation; // redirect to the confirmation page
+    });
+};
