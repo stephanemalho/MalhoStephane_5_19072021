@@ -12,7 +12,8 @@ function renderCart() {
   if (index.getCart().length === 0) {
     emptyCart();
   }
-  index.getCart().forEach((element) => {
+  index.getCart().forEach((element, i) => {
+    console.log(i);
     content +=
       `
         <article>
@@ -20,7 +21,9 @@ function renderCart() {
           <img src="` +
       element.imageUrl +
       `" alt="image 'test' appareil photo">
-      <i class="far fa-trash-alt"></i>
+      <i data-id="` +
+      i +
+      `" class="far fa-trash-alt delete-item"></i>
           <figcaption>
             <h3>` +
       element.name +
@@ -31,17 +34,24 @@ function renderCart() {
             <p>` +
       element.description +
       `</p>
-            <p>Option: ` +
+            <p>Option de lentille: ` +
       element.optionValue +
       `</p>
-            <p>quantité:
-              ` +
+            <form method="post" class="box">
+              <label for="quantity" title="quantité"
+                >QTÉ
+                <input
+                  type="number"
+                  placeholder="1"
+                  value="` +
       element.qty +
-      `
-                </p>
+      `"
+                  min="1"
+                  name="quantity"
+                  id="quantity"
+                />
               </label>
             </form>
-          </figcaption>
         </figure>
       </article>
 
@@ -54,20 +64,19 @@ renderCart(); // RUN THE FUNCTION
 /****************************************************
  ************* DELETE CART IN HTML ******************
  ****************************************************/
-function DeleteArticle() {
-  let trashBtn = document.querySelectorAll(".fa-trash-alt");
-  for (let i = 0; i < trashBtn.length; i++) {
-    trashBtn[i].addEventListener("click", function () {
-      
-      
-      //localStorage.removeItem("cart");
-      //window.location= "../pages/cart.html"
-      localStorage.removeItem("cart");
+function deleteArticle() {
+  let trashBtn = document.querySelectorAll(".delete-item");
+  trashBtn.forEach((element) => {
+    element.addEventListener("click", function () {
+      let id = element.dataset.id;
+      let cart = index.getCart();
+      cart.splice(id, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      location.reload();
     });
-  }
+  });
 }
-
-DeleteArticle();
+deleteArticle();
 
 /****************************************************
  ************* RENDER AMOUNT IN HTML ****************
@@ -160,7 +169,7 @@ export function submitCart() {
       phone: document.querySelector("#tel").value,
       email: document.querySelector("#email").value,
     };
-    localStorage.setItem("formValues", JSON.stringify(formValues)); //make object in json format in the local storage
+    //localStorage.setItem("formValues", JSON.stringify(formValues)); //make object in json format in the local storage
     makeOrder(formValues);
   }
 }
@@ -192,13 +201,18 @@ const makeOrder = (formValues) => {
         console.log(res.json);
         return res.json();
       } else {
-        alert("une erreur est survenue");
+        throw new Error("Error with API. order not sent");
+        //alert("une erreur est survenue");
       }
     })
     .then((value) => {
+      localStorage.clear();
       localStorage.setItem("orderId", JSON.stringify(value.orderId));
     })
     .then(() => {
       window.location = newLocation; // redirect to the confirmation page
+    })
+    .catch(() => {
+      alert("une erreur est survenue");
     });
 };

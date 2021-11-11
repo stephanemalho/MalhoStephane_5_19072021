@@ -1,4 +1,4 @@
-const city = "^([0-9]) ?([a-zA-Z,. ]{1,30})$";
+const city = "^([0-9]{1,4}) ?([a-zA-Z,. ]{1,30})$";
 const stringWithoutSpecials = "^([a-zA-ZÀ-ÿ-']{1,20})$";
 const email =
   "^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
