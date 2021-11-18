@@ -1,3 +1,4 @@
+import { Input } from "postcss";
 import * as index from "./index"; // IMPORT GLOBAL SYNTAX
 import { validForm } from "./validation";
 
@@ -37,7 +38,7 @@ function renderCart() {
             <p>Option de lentille: ` +
       element.optionValue +
       `</p>
-            <form method="post" class="box">
+            <form  class="box">
               <label for="quantity" title="quantité"
                 >QTÉ
                 <input
@@ -47,6 +48,9 @@ function renderCart() {
       element.qty +
       `"
                   min="1"
+                  data-modif= "` +
+      element.qty +
+      `"
                   name="quantity"
                   id="quantity"
                 />
@@ -60,6 +64,39 @@ function renderCart() {
   container.innerHTML += content;
 }
 renderCart(); // RUN THE FUNCTION
+
+/****************************************************
+ *************   MODIFY CART QTY   ******************
+ *************     IN INPUT        ******************
+ ****************************************************/
+function changeInputQty() {
+  let input = document.querySelectorAll("#quantity");
+  input.forEach((element) => {
+    console.log(element);
+    element.addEventListener("change", () => {
+      let modify = element.value;
+      //let qty = index.getCart();
+      console.log(modify);
+      //localStorage.setItem("cart")
+
+      let cart = [];
+      if (localStorage.getItem("cart") != null) {
+        cart = JSON.parse(localStorage.getItem("cart"));
+      }
+
+      let input = 0;
+
+      cart.map((element) => {
+        input += element.qty;
+      });
+      console.log(cart);
+      return input;
+      
+    });
+  });
+}
+changeInputQty();
+
 
 /****************************************************
  ************* DELETE CART IN HTML ******************
