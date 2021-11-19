@@ -48,7 +48,7 @@ function renderCart() {
       element.qty +
       `"
                   min="1"
-                  data-modif= "` +
+                  data-num= "` +
       element.qty +
       `"
                   name="quantity"
@@ -73,30 +73,21 @@ function changeInputQty() {
   let input = document.querySelectorAll("#quantity");
   input.forEach((element) => {
     console.log(element);
-    element.addEventListener("change", () => {
-      let modify = element.value;
-      //let qty = index.getCart();
-      console.log(modify);
-      //localStorage.setItem("cart")
-
-      let cart = [];
-      if (localStorage.getItem("cart") != null) {
-        cart = JSON.parse(localStorage.getItem("cart"));
+    element.addEventListener("change", function () {
+      let newArticles = element.value;
+      let type = element.getAttribute("data-num");
+      let qty = localStorage.getItem(element.qty);
+      if(type != null) {
+        newArticles.slice(type);
+        localStorage.setItem("cart", JSON.stringify(newArticles, qty));
       }
-
-      let input = 0;
-
-      cart.map((element) => {
-        input += element.qty;
-      });
-      console.log(cart);
-      return input;
       
+      return newArticles;
+
     });
   });
 }
 changeInputQty();
-
 
 /****************************************************
  ************* DELETE CART IN HTML ******************
