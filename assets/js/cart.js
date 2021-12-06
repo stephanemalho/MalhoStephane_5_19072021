@@ -1,4 +1,3 @@
-import { Input } from "postcss";
 import * as index from "./index"; // IMPORT GLOBAL SYNTAX
 import { validForm } from "./validation";
 
@@ -48,8 +47,8 @@ function renderCart() {
       element.qty +
       `"
                   min="1"
-                  data-num= "` +
-      element.qty +
+                  data-id= "` +
+      i +
       `"
                   name="quantity"
                   id="quantity"
@@ -69,28 +68,37 @@ renderCart(); // RUN THE FUNCTION
  *************   MODIFY CART QTY   ******************
  *************     IN INPUT        ******************
  ****************************************************/
-function changeInputQty() {
-  let input = document.querySelectorAll("#quantity");
-  input.forEach((element) => {
-    console.log(element);
-    element.addEventListener("change", function () {
-      let newArticles = element.value;
-      let type = element.getAttribute("data-num");
-      let qty = localStorage.getItem(element.qty);
-      if(type != null) {
-        newArticles.slice(type);
-        localStorage.setItem("cart", JSON.stringify(newArticles, qty));
-      }
-      
-      return newArticles;
 
-    });
-  });
+function changeInputQty(id, qty) {
+  let cart = index.getCart();
+  
+  if (qty >= 1) {
+    cart[id].qty = Number(qty);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    
+  }
+  
+  index.updateCartQty();
+  
 }
+
+let input = document.querySelectorAll("#quantity");
+
+
+input.forEach((element) => {
+  element.addEventListener("change", (event) => {
+    changeInputQty(event.target.dataset.id, event.target.value);
+    setTimeout(() => {
+      location.reload();
+    }, 2000);
+  });
+  
+});
+
 changeInputQty();
 
 /****************************************************
- ************* DELETE CART IN HTML ******************
+ ************* DELETE ONE ARTICLE *******************
  ****************************************************/
 function deleteArticle() {
   let trashBtn = document.querySelectorAll(".delete-item");
@@ -106,6 +114,8 @@ function deleteArticle() {
 }
 deleteArticle();
 
+
+
 /****************************************************
  ************* RENDER AMOUNT IN HTML ****************
  ****************************************************/
@@ -113,54 +123,49 @@ function renderAmount() {
   let container = document.getElementById("resume");
   let content =
     `
-  
   <thead>
     <tr>
       <th>Résumé</th>
-      
     </tr>
   </thead>
   <tbody>
     <tr colspan="2">
       <th>Articles:</th>
-      <td><span class="cart-qty">` +
-    index.getCartQuantity() +
-    `</span></td>
+      <td><span class="cart-qty">${index.getCartQuantity()}</span></td>
     </tr>
     <tr colspan="2">
       <th>Livraison:</th>
-      <td>` +
-    index.delivery +
-    `</td>
+      <td>${index.delivery}</td>
     </tr>
     <tr colspan="2">
       <th>TVA:</th>
-      <td>` +
-    index.cartPercent +
-    `%</td>
+      <td>${index.cartPercent}%</td>
     </tr>
     <tr colspan="2">
       <th>Total HT:</th>
-      <td>` +
-    index.priceToEuros(index.getTotalCartHT()) +
-    `</td>
+      <td>${index.priceToEuros(index.getTotalCartHT())}</td>
     </tr>
     <tr colspan="2">
       <th>Total TTC:</th>
-      <td>` +
-    index.priceToEuros(index.getTotalCartTTC()) +
-    `</td>
+      <td>${index.priceToEuros(index.getTotalCartTTC())}</td>
     </tr>
   </tbody>
-  <tfoot >
-    <th colspan="2">
-      <img id="logo-table" src="../assets/img/Logo.png" alt="Logo de Orinoco" />
-    </th>
+  <tfoot>
+      <tr>
+        <th>
+          <button class="clear" type="submit">Tout supprimer <i class="far fa-trash-alt delete-item"></i></button>
+        </th>
+      </tr>
   </tfoot>
-
 
     `;
   container.innerHTML += content;
+
+  const clearBtn = document.querySelector(".clear");
+  clearBtn.addEventListener("click", () => {
+    localStorage.removeItem("cart");
+    location.reload();
+  })
 }
 
 renderAmount();

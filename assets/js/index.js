@@ -29,9 +29,12 @@ export function getCartQuantity() {
   return totalQty; // TO RETURN ALL QUANTITY OF THE CART
 }
 
-// TO SELECT EACH ELEMENTS WITH THE CLASS NAMED "cart-qty"
+/*******************************************
+ *********** TO UPDATE CART ****************
+ ***********    QUANTITY    ****************
+ *******************************************/
 export function updateCartQty() {
-  let cartQty = document.getElementsByClassName("cart-qty");
+  let cartQty = document.getElementsByClassName("cart-qty");// TO SELECT EACH ELEMENTS WITH THE CLASS NAMED "cart-qty"
   Array.from(cartQty).forEach((element) => {
     element.innerHTML = getCartQuantity(); // SHOW RESULT OF getCartQuantity IN EACH "cart-qty"
   });
