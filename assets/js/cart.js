@@ -88,14 +88,12 @@ let input = document.querySelectorAll("#quantity");
 input.forEach((element) => {
   element.addEventListener("change", (event) => {
     changeInputQty(event.target.dataset.id, event.target.value);
-    setTimeout(() => {
-      location.reload();
-    }, 2000);
+    
   });
-  
+  index.updateCartInfo();
 });
 
-changeInputQty();
+
 
 /****************************************************
  ************* DELETE ONE ARTICLE *******************
@@ -143,11 +141,11 @@ function renderAmount() {
     </tr>
     <tr colspan="2">
       <th>Total HT:</th>
-      <td>${index.priceToEuros(index.getTotalCartHT())}</td>
+      <td id="total-ht">${index.priceToEuros(index.getTotalCartHT())}</td>
     </tr>
     <tr colspan="2">
       <th>Total TTC:</th>
-      <td>${index.priceToEuros(index.getTotalCartTTC())}</td>
+      <td id="total-ttc">${index.priceToEuros(index.getTotalCartTTC())}</td>
     </tr>
   </tbody>
   <tfoot>

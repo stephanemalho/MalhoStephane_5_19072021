@@ -70,3 +70,8 @@ export function addToCart() {
   throw new Error("Function not implemented.");
 }
 
+export function updateCartInfo() {
+  updateCartQty();
+  document.getElementById("total-ht").innerHTML = priceToEuros(getTotalCartHT());
+  document.getElementById("total-ttc").innerHTML = priceToEuros(getTotalCartTTC());
+}
