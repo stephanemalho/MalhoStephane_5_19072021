@@ -57,6 +57,12 @@
             <li>
               <a href="../index.html">Accueil</a>
             </li>
+            <li>
+              <a href="../pages/cart.html"
+                ><i class="fas fa-shopping-cart"></i
+                ><span class="cart-qty"></span
+              ></a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -65,16 +71,106 @@
       <!-- Animation loader-->
       <div class="fixed">Orinoco</div>
     </div>
+    -->
     <main>
       <h1>Orinoco</h1>
       <p>
-        Organisez votre panier, et faites vous livrer les produits dans les
+        Confirmer votre panier, et faites vous livrer les produits dans les
         meilleurs délais
       </p>
-      <section id="container">
-        <h2> <span id="cart-qty">  </span> produit<span id="plurial"></span> à votre panier</h2>
-        <!-- cart.js-->
-      </section>
+      <div id="position-block">
+        <section id="container">
+          <h2>Panier d'achats</h2>
+          <!-- cart.js => renderCart() -->
+        </section>
+        <aside>
+          <table id="resume">
+            <!-- cart.js => renderAmount() -->
+          </table>
+          <form id="loginForm" action="#" method="post">
+            <h3>Adresse de Livraison</h3>
+            <!-- NAME -->
+            <div>
+              <label for="name">Nom:</label>
+              <input
+                id="name"
+                name="name"
+                placeholder="Votre nom"
+                autofocus
+                required
+              />
+              <small><!--validation.js => checkIfRegExp()--></small>
+            </div>
+            <!--FIRST NAME-->
+            <div>
+              <label for="firstName">Prénom:</label>
+              <input
+                id="firstName"
+                name="firstName"
+                class="form"
+                placeholder="Votre prénom"
+                required
+              />
+              <small><!--validation.js => checkIfRegExp()--></small>
+            </div>
+            <!--POSTAL ADRESS-->
+            <div>
+              <label for="postalAddress">Adresse postale:</label>
+              <input
+                id="postalAddress"
+                name="postalAddress"
+                maxlength="39"
+                placeholder="Votre adresse postal"
+                required
+              />
+              <small><!--validation.js => checkIfRegExp()--></small>
+            </div>
+            <!--CITY-->
+            <div>
+              <label for="city">Ville:</label>
+              <input id="city" name="city" placeholder="Votre ville" required />
+              <small></small>
+            </div>
+            <!--POSTAL CODE-->
+            <div>
+              <label for="postalCode">Code postal:</label>
+              <input
+                id="postalCode"
+                name="postalCode"
+                placeholder="Votre code postal"
+                required
+              />
+              <small></small>
+            </div>
+            <!--PHONE-->
+            <div>
+              <label for="tel">Téléphone:</label>
+              <input
+                id="tel"
+                name="tel"
+                type="tel"
+                placeholder="Ex: 06 01 01 01 01"
+                required
+              />
+              <small></small>
+            </div>
+            <!--MAIL ADRESS-->
+            <div>
+              <label for="email">Adresse email: </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Ex: un.exemple@test.com"
+                required
+              />
+              <small><!--validation.js => validEmail() --></small>
+            </div>
+            <!--SUBMIT BUTTON-->
+            <button class="btn-form-submit" type="submit">Passer la commande</button>
+          </form>
+        </aside>
+      </div>
     </main>
     <footer>
       <ul>
@@ -85,5 +181,6 @@
       <p>&copy;2021 Orinoco Inc.</p>
     </footer>
     <script src="../assets/dist/js/cart.js"></script>
+    <script src="../assets/dist/js/validation.js"></script>
   </body>
 </html>

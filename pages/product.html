@@ -59,7 +59,7 @@
             </li>
             <li>
               <a href="../pages/cart.html"
-                ><i class="fas fa-shopping-cart"></i><span id="cart-qty"></span
+                ><i class="fas fa-shopping-cart"></i><span class="cart-qty"></span
               ></a>
             </li>
           </ul>
@@ -78,10 +78,10 @@
       </p>
       <section id="container">
         <h2>Caractéristiques de votre produit</h2>
-        <!-- Product.js-->
+        <!-- Product.js => renderProduct() -->
       </section>
       <div class="basket">
-        <form method="post" class="box">
+        <form  class="box">
           <label for="quantity" title="quantité"
             >QTÉ
             <input
@@ -89,7 +89,7 @@
               placeholder="1"
               value="1"
               min="1"
-              max="9"
+
               name="quantity"
               id="quantity"
             />
@@ -101,9 +101,10 @@
       </div>
       <aside id="checkCart" aria-hidden="true" aria-labelledby="titleModal">
         <div class="modal">
-          <i class="fas fa-times" id="close" tabindex="0"></i>
+          <button id="close" type="reset"><i class="fas fa-times"></i></button>
           <h2 id="titleModal">L'ajout à votre panier à été validé</h2>
           <a href="../pages/cart.html"> Vérifier mon Panier </a>
+          <a href="../index.html"> Retour à mes achats </a>
         </div>
       </aside>
     </main>
@@ -111,7 +112,6 @@
       <ul>
         <li><a href="#">Confidentialité</a></li>
         <li><a href="#">Accessibilité</a></li>
-        <li><a href="#">Aide</a></li>
       </ul>
       <p>&copy;2021 Orinoco Inc.</p>
     </footer>

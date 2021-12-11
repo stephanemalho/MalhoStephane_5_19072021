@@ -147,12 +147,18 @@ a {
     max-height: calc(100vh -20px);
     padding: 20px;
     background-color: #fff; }
-    #checkCart .modal i {
+    #checkCart .modal button {
       font-size: 30px;
       display: flex;
       justify-content: flex-end;
-      margin-bottom: 30px; }
-    #checkCart .modal a:last-child {
+      margin-bottom: 30px;
+      width: 100%;
+      background-color: white;
+      border: none; }
+      #checkCart .modal button:hover {
+        opacity: 0.6;
+        transition: all 500ms; }
+    #checkCart .modal a {
       margin: 50px 0;
       height: 50px;
       border: none;
@@ -164,7 +170,7 @@ a {
       justify-content: center;
       background-color: purple;
       transition: all 500ms; }
-      #checkCart .modal a:last-child:hover {
+      #checkCart .modal a:hover {
         opacity: 0.8;
         box-shadow: 3px 7px 8px 1px #f3e8f0;
         transition: all 500ms; }
@@ -244,6 +250,9 @@ footer {
     font-size: 1em; }
     footer ul li {
       padding: 10px 5px; }
+    footer ul li a:hover {
+      color: purple;
+      transition: all 100ms; }
 
 @media only screen and (min-width: 900px) {
   footer ul {
@@ -405,7 +414,7 @@ section {
     flex-basis: 40%;
     margin: auto;
     box-sizing: border-box;
-    max-width: 350px;
+    max-width: 360px;
     margin-bottom: 20px;
     border: 1px solid black;
     padding: 7px; }
@@ -426,8 +435,8 @@ section {
       section div figure img {
         width: 100%;
         height: 100%; }
-      section article figure figcaption p,
-      section div figure figcaption p {
+      section article figure figcaption,
+      section div figure figcaption {
         font-size: 1em; }
     section article:hover,
     section div:hover {

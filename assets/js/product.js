@@ -1,5 +1,8 @@
 import * as index from "./index";
-import { getCartQuantity } from "./index";
+
+/****************************************************
+ ****************  GET PRODUCT  *********************
+ ****************************************************/
 
 async function getProduct() {
   const url = new URL(window.location.href);
@@ -7,7 +10,7 @@ async function getProduct() {
   let id = url.searchParams.get("id");
   try {
     const response = await fetch(
-      "http://localhost:3000/api/" + category + "/" + id
+      "http://localhost:3000/api/" + category + "/" + id // RETURN URL WITH category AND ITS id
     );
     const datas = await response.json();
     return datas;
@@ -15,6 +18,11 @@ async function getProduct() {
     return error;
   }
 }
+
+/****************************************************
+ ********* RENDER PRODUCT IN HTML  ******************
+ ****************************************************/
+
 function renderProduct(product) {
   let container = document.getElementById("container");
   let content =
@@ -58,7 +66,7 @@ function renderProduct(product) {
   document
     .getElementsByTagName("form")[0]
     .addEventListener("submit", function (e) {});
-  container.innerHTML += content;
+  container.innerHTML += content; // ADD CONTENT WITH CONTAINER INNERHTML
 }
 
 getProduct().then((result) => {
@@ -66,23 +74,28 @@ getProduct().then((result) => {
   document
     .getElementsByTagName("form")[0]
     .addEventListener("submit", function (e) {
-      //stop propagation
-      e.preventDefault();
+      e.preventDefault(); //STOP PROPAGATION
       addToCard(result);
     });
 });
 
-function addToCard(product) {
+/****************************************************
+ *************** TO ADD TO CARD *********************
+ ****************************************************
+ ****************************************************/
+
+export function addToCard(product) {
   let cart = index.getCart();
 
   product.optionValue = document.getElementById("choice").value;
   product.qty = Number(document.getElementById("quantity").value);
 
+  // CHECK IF PRODUCT IS DEFIND ON CART
   const isProduct = cart.find(
     (element) =>
       element._id === product._id && element.optionValue === product.optionValue
   );
-
+  // IF UNDEFINED ADD NEW PRODUCT ON CART
   if (isProduct === undefined) {
     let newProduct = {
       _id: product._id,
@@ -95,8 +108,9 @@ function addToCard(product) {
     };
     cart.push(newProduct);
     localStorage.setItem("cart", JSON.stringify(cart));
-  } else {
-    //sinon
+  }
+  // ELSE INCREASE THE NEW QTY WITH isPRODUCT.qty
+  else {
     const newCart = cart.map((element) => {
       if (
         element._id === product._id &&
@@ -108,31 +122,35 @@ function addToCard(product) {
     });
     localStorage.setItem("cart", JSON.stringify(newCart));
   }
-  document.getElementById("cart-qty").innerHTML = getCartQuantity();
-
-  // Afficher un modal du panier au clic
-  let modal = document.getElementById("checkCart");
-  modal.style.display = "flex";
-  modal.setAttribute("aria-hidden", false);
+  // SHOW FUNCTION IN index.js
+  index.updateCartQty();
+  toggleModal("open");
 }
-// Fermer le modal du panier
-let btn = document.getElementById("close");
+let btn = document.getElementById("close"); // RUN MODAL ON CLIC
 btn.addEventListener("click", (event) => {
   event.preventDefault();
-  let modal = document.getElementById("checkCart");
-  modal.style.display = "none";
-  modal.setAttribute("aria-hidden", true);
+  toggleModal("close");
 });
 
-function getOptionsType() {
+/****************************************************
+ *************** MODAL FUNCTION  ********************
+ ****************************************************/
+const toggleModal = (toDo) => {
+  let modal = document.getElementById("checkCart");
+  if (toDo === "open") {
+    modal.style.display = "flex";
+    modal.setAttribute("aria-hidden", false); // SHOW MODAL
+  }
+  if (toDo === "close") {
+    modal.style.display = "none";
+    modal.setAttribute("aria-hidden", true); // HIDE MODAL
+  }
+};
+
+export function getOptionsType() {
   const url = new URL(window.location.href);
   let category = url.searchParams.get("category");
-
   if (category === "cameras") {
-    return "lenses";
-  }
-
-  if (category === "teddies") {
-    return "colors";
+    return "lenses"; // RETURN LENSES OF CATEGORY
   }
 }
