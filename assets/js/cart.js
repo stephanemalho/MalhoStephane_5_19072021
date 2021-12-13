@@ -1,18 +1,18 @@
-import * as index from "./index"; // IMPORT GLOBAL SYNTAX
-import { validForm } from "./validation";
+import * as index from "./index"; // IMPORT FUNCTIONS GLOBAL SYNTAX
+import { validForm } from "./validation"; //IMPORT SPECIFIC FUNCTION FROM VALIDATION.JS
 
 let newLocation = "../pages/confirmation.html";
 
 /****************************************************
  ************* RENDER CART IN HTML ******************
  ****************************************************/
-function renderCart() {
+const renderCart = () => {
   let container = document.getElementById("container");
   let content = "";
   if (index.getCart().length === 0) {
-    emptyCart();
+    emptyCart(); // emptyCart will run if getCart is empty
   }
-  index.getCart().forEach((element, i) => {
+  index.getCart().forEach((element, i) => { // for each element add this content
     console.log(i);
     content +=
       `
@@ -61,66 +61,15 @@ function renderCart() {
         `;
   });
   container.innerHTML += content;
-}
+};
 renderCart(); // RUN THE FUNCTION
-
-/****************************************************
- *************   MODIFY CART QTY   ******************
- *************     IN INPUT        ******************
- ****************************************************/
-
-function changeInputQty(id, qty) {
-  let cart = index.getCart();
-  
-  if (qty >= 1) {
-    cart[id].qty = Number(qty);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    
-  }
-  
-  index.updateCartQty();
-  
-}
-
-let input = document.querySelectorAll("#quantity");
-
-
-input.forEach((element) => {
-  element.addEventListener("change", (event) => {
-    changeInputQty(event.target.dataset.id, event.target.value);
-    
-  });
-  index.updateCartInfo();
-});
-
-
-
-/****************************************************
- ************* DELETE ONE ARTICLE *******************
- ****************************************************/
-function deleteArticle() {
-  let trashBtn = document.querySelectorAll(".delete-item");
-  trashBtn.forEach((element) => {
-    element.addEventListener("click", function () {
-      let id = element.dataset.id;
-      let cart = index.getCart();
-      cart.splice(id, 1);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      location.reload();
-    });
-  });
-}
-deleteArticle();
-
-
 
 /****************************************************
  ************* RENDER AMOUNT IN HTML ****************
  ****************************************************/
-function renderAmount() {
+const renderAmount = () => {
   let container = document.getElementById("resume");
-  let content =
-    `
+  let content = `
   <thead>
     <tr>
       <th>Résumé</th>
@@ -151,24 +100,26 @@ function renderAmount() {
   <tfoot>
       <tr>
         <th>
-          <button class="clear" type="submit">Tout supprimer <i class="far fa-trash-alt delete-item"></i></button>
+          <button id="clear" type="submit">Tout supprimer <i class="far fa-trash-alt delete-item"></i></button>
         </th>
       </tr>
   </tfoot>
 
     `;
-  container.innerHTML += content;
+  container.innerHTML += content; 
 
-  const clearBtn = document.querySelector(".clear");
-  clearBtn.addEventListener("click", () => {
+  const clearBtn = document.querySelector("#clear");
+  clearBtn.addEventListener("click", () => { // clearBtn will clear the local storage and reload the page on click in element with id #clear 
     localStorage.removeItem("cart");
     location.reload();
-  })
-}
+  });
+};
 
 renderAmount();
 
-// send this article in cart.html if cart is empty
+/******************************************************
+ * send this article in cart.html if cart is empty  ***
+ ******************************************************/
 function emptyCart() {
   let emptyMessage = `
     <article class="empty-page">
@@ -179,15 +130,53 @@ function emptyCart() {
   `;
   document.querySelector("aside").style.display = "none"; // mask article and resume
   document.querySelector("h2").style.textAlign = "center"; // change h2 position
+  document.getElementById("container").style.margin = "auto"; // put container in the center of the section
   //document.querySelector("#container");
   container.insertAdjacentHTML("beforeend", emptyMessage); // inser adjacent Html of emptyMessage() in the cart.html page
 }
+
+/****************************************************
+ *************   MODIFY CART QTY   ******************
+ *************     IN INPUT        ******************
+ ****************************************************/
+
+const changeInputQty = (id, qty) => {
+  let cart = index.getCart();
+  if (qty >= 1) {
+    cart[id].qty = Number(qty);
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+  index.updateCartInfo();
+};
+let input = document.querySelectorAll("#quantity");
+input.forEach((element) => {
+  element.addEventListener("change", (event) => {
+    changeInputQty(event.target.dataset.id, event.target.value);
+  });
+});
+
+/****************************************************
+ ************* DELETE ONE ARTICLE *******************
+ ****************************************************/
+const deleteArticle = () => {
+  let trashBtn = document.querySelectorAll(".delete-item");
+  trashBtn.forEach((element) => {
+    element.addEventListener("click", function () {
+      let id = element.dataset.id;
+      let cart = index.getCart();
+      cart.splice(id, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      location.reload();
+    });
+  });
+};
+deleteArticle();
 
 /***************************************************
  ***************** Send values from ****************
  ************ Formular to local storage ************
  ***************************************************/
-export function submitCart() {
+export const submitCart = () => {
   if (validForm()) {
     /* if the form is valid */
     // create contact object and save it in local storage
@@ -200,7 +189,7 @@ export function submitCart() {
       phone: document.querySelector("#tel").value,
       email: document.querySelector("#email").value,
     };
-    //localStorage.setItem("formValues", JSON.stringify(formValues)); //make object in json format in the local storage
+    localStorage.setItem("formValues", JSON.stringify(formValues)); //make object in json format in the local storage
     makeOrder(formValues);
   }
 }

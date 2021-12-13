@@ -566,7 +566,8 @@ main {
     main #position-block .desktop-media {
       margin-top: 20px; }
     main #position-block #container {
-      min-height: 965px; }
+      min-height: 965px;
+      margin-left: 0; }
       main #position-block #container article {
         margin-top: 10px; }
       main #position-block #container article.empty-page {

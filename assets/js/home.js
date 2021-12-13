@@ -30,7 +30,7 @@ async function getProducts(category) {
  ********* RENDER PRODUCT IN HTML ******************
  ****************************************************/
 
-function renderProducts(products, category) {
+const renderProducts = (products, category) => {
   let container = document.getElementById("container");
   let content = "";
   products.forEach((element) => {

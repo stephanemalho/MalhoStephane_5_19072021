@@ -1,12 +1,12 @@
 export let cartPercent = 20; // renderCart percent Option
 export let delivery = "Gratuite"; // renderCart delivery Option
 
-export function priceToEuros(price) {
+export const priceToEuros = (price) => {
   price = price / 100;
   return price + " €"; // TO DIVIDE PRICE AND RETURNED IT TO DECIMAL EURO
 }
 
-export function getCart() {
+export const getCart = () => {
   let cart = [];
   if (localStorage.getItem("cart") != null) {
     cart = JSON.parse(localStorage.getItem("cart"));
@@ -14,7 +14,7 @@ export function getCart() {
   return cart; // TO RETURN CART FROM LOCAL STORAGE
 }
 
-export function getCartQuantity() {
+export const getCartQuantity = () => {
   let cart = [];
   if (localStorage.getItem("cart") != null) {
     cart = JSON.parse(localStorage.getItem("cart"));
@@ -33,7 +33,7 @@ export function getCartQuantity() {
  *********** TO UPDATE CART ****************
  ***********    QUANTITY    ****************
  *******************************************/
-export function updateCartQty() {
+export const updateCartQty = () => {
   let cartQty = document.getElementsByClassName("cart-qty");// TO SELECT EACH ELEMENTS WITH THE CLASS NAMED "cart-qty"
   Array.from(cartQty).forEach((element) => {
     element.innerHTML = getCartQuantity(); // SHOW RESULT OF getCartQuantity IN EACH "cart-qty"
@@ -46,7 +46,7 @@ updateCartQty(); // RUN THE FUNCTION
  *********** GET PRICE WITH ****************
  *********** TAX INCLUDED ******************
  *******************************************/
-export function getTotalCartTTC() {
+export const getTotalCartTTC = () => {
   let cart = [];
   if (localStorage.getItem("cart") != null) {
     cart = JSON.parse(localStorage.getItem("cart"));
@@ -63,14 +63,14 @@ export function getTotalCartTTC() {
  *********** GET PRICE WITHOUT *************
  *********** TAX ***************************
  *******************************************/
-export function getTotalCartHT() {
+export const getTotalCartHT = () => {
   return getTotalCartTTC() - getTotalCartTTC() * (cartPercent / 100);
 }
-export function addToCart() {
+export const addToCart = () => {
   throw new Error("Function not implemented.");
 }
 
-export function updateCartInfo() {
+export const updateCartInfo = () => {
   updateCartQty();
   document.getElementById("total-ht").innerHTML = priceToEuros(getTotalCartHT());
   document.getElementById("total-ttc").innerHTML = priceToEuros(getTotalCartTTC());

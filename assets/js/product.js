@@ -23,29 +23,21 @@ async function getProduct() {
  ********* RENDER PRODUCT IN HTML  ******************
  ****************************************************/
 
-function renderProduct(product) {
+const renderProduct = (product) => {
   let container = document.getElementById("container");
   let content =
     `
   <div>
   <figure>
     <img
-      src="` +
-    product.imageUrl +
-    `"
+      src="${product.imageUrl}"
       alt="appareil photo ancien avec zoom"
     />
-    <span>` +
-    index.priceToEuros(product.price) +
-    `</span>
+    <span>${index.priceToEuros(product.price)}</span>
     <figcaption>
-      <h3>` +
-    product.name +
-    `</h3>
+      <h3>${product.name}</h3>
       <p>
-      ` +
-    product.description +
-    `
+      ${product.description}
       </p>
     </figcaption>
   </figure>
@@ -84,7 +76,7 @@ getProduct().then((result) => {
  ****************************************************
  ****************************************************/
 
-export function addToCard(product) {
+export const addToCard = (product) => {
   let cart = index.getCart();
 
   product.optionValue = document.getElementById("choice").value;
@@ -145,9 +137,9 @@ const toggleModal = (toDo) => {
     modal.style.display = "none";
     modal.setAttribute("aria-hidden", true); // HIDE MODAL
   }
-};
+}
 
-export function getOptionsType() {
+export const getOptionsType = () => {
   const url = new URL(window.location.href);
   let category = url.searchParams.get("category");
   if (category === "cameras") {

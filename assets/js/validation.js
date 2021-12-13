@@ -8,7 +8,7 @@ const cellPhone = "^0[1-9]([-. ]?[0-9]{2}){4}$";
  ************ Check if regExp are *******************
  ************      respected      *******************
  ****************************************************/
-export function checkIfRegExp(regex, input, message) {
+export const checkIfRegExp = (regex, input, message) => {
   let testRegex = new RegExp(regex).test(input.value);
   let small = input.nextElementSibling;
   if (testRegex) {
@@ -22,18 +22,18 @@ export function checkIfRegExp(regex, input, message) {
     changeFormStatus(false);
     return false;
   }
-}
+};
 
 let formStatus = true;
-function changeFormStatus(boolean) {
+const changeFormStatus = (boolean) => {
   formStatus = boolean;
-}
+};
 /*******************************************
  ********** valid rexgexp before ***********
  **********  sending formulary   ***********
  **********       values         ***********
  *******************************************/
-export function validForm() {
+export const validForm = () => {
   changeFormStatus(true);
   checkIfRegExp(email, document.getElementById("email"), "Email invalide");
   checkIfRegExp(
@@ -67,4 +67,4 @@ export function validForm() {
     "Téléphone invalide"
   );
   return formStatus;
-}
+};
