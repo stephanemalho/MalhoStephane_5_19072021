@@ -402,18 +402,20 @@ section {
   align-items: center;
   padding-top: 125px;
   min-height: 700px; }
-  section article p {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 1.3em;
-    font-weight: bold;
-    margin: 10px;
-    padding: 10px 0; }
-    section article p span {
-      font-size: 1.1em;
-      font-weight: lighter;
+  section article h2 {
+    font-size: 1.1em; }
+    section article h2 p {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      font-size: 1em;
+      font-weight: bold;
+      margin: 10px;
       padding: 10px 0; }
+      section article h2 p span {
+        font-size: 1.1em;
+        font-weight: lighter;
+        padding: 10px 0; }
   section article a {
     margin: 50px 0;
     height: 50px;

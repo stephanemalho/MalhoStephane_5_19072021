@@ -1,9 +1,9 @@
 const city = "^([0-9]{1,4}) ?([a-zA-Z,. ]{1,30})$";
 const stringWithoutSpecials = "^([a-zA-ZÀ-ÿ-']{1,20})$";
-const email =
-  "^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
+const email = "^[a-zA-Z0-9._]+[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z]{2,4}$";
 const postalCode = "^[0-9]{5}$";
 const cellPhone = "^0[1-9]([-. ]?[0-9]{2}){4}$";
+
 /****************************************************
  ************ Check if regExp are *******************
  ************      respected      *******************
@@ -20,14 +20,19 @@ export const checkIfRegExp = (regex, input, message) => {
     small.style.color = "red";
     input.style.border = "1px solid red";
     changeFormStatus(false);
+    console.log(formStatus);
     return false;
   }
 };
 
+// create "formStatus" as true
 let formStatus = true;
-const changeFormStatus = (boolean) => {
+/*******************************************
+ ****** TO MAKE changeFormStatus() *********
+ *******************************************/
+function changeFormStatus(boolean) {
   formStatus = boolean;
-};
+}
 /*******************************************
  ********** valid rexgexp before ***********
  **********  sending formulary   ***********

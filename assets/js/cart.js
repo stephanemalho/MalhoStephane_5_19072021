@@ -6,14 +6,14 @@ let newLocation = "../pages/confirmation.html";
 /****************************************************
  ************* RENDER CART IN HTML ******************
  ****************************************************/
-const renderCart = () => {
+function renderCart() {
   let container = document.getElementById("container");
   let content = "";
   if (index.getCart().length === 0) {
     emptyCart(); // emptyCart will run if getCart is empty
   }
-  index.getCart().forEach((element, i) => { // for each element add this content
-    console.log(i);
+  index.getCart().forEach((element, i) => {
+    // for each element add this content
     content +=
       `
         <article>
@@ -47,6 +47,7 @@ const renderCart = () => {
       element.qty +
       `"
                   min="1"
+                  max="99"
                   data-id= "` +
       i +
       `"
@@ -61,13 +62,13 @@ const renderCart = () => {
         `;
   });
   container.innerHTML += content;
-};
+}
 renderCart(); // RUN THE FUNCTION
 
 /****************************************************
  ************* RENDER AMOUNT IN HTML ****************
  ****************************************************/
-const renderAmount = () => {
+function renderAmount() {
   let container = document.getElementById("resume");
   let content = `
   <thead>
@@ -106,14 +107,15 @@ const renderAmount = () => {
   </tfoot>
 
     `;
-  container.innerHTML += content; 
+  container.innerHTML += content;
 
   const clearBtn = document.querySelector("#clear");
-  clearBtn.addEventListener("click", () => { // clearBtn will clear the local storage and reload the page on click in element with id #clear 
+  clearBtn.addEventListener("click", () => {
+    // clearBtn will clear the local storage and reload the page on click in element with id #clear
     localStorage.removeItem("cart");
     location.reload();
   });
-};
+}
 
 renderAmount();
 
@@ -131,7 +133,6 @@ function emptyCart() {
   document.querySelector("aside").style.display = "none"; // mask article and resume
   document.querySelector("h2").style.textAlign = "center"; // change h2 position
   document.getElementById("container").style.margin = "auto"; // put container in the center of the section
-  //document.querySelector("#container");
   container.insertAdjacentHTML("beforeend", emptyMessage); // inser adjacent Html of emptyMessage() in the cart.html page
 }
 
@@ -140,14 +141,14 @@ function emptyCart() {
  *************     IN INPUT        ******************
  ****************************************************/
 
-const changeInputQty = (id, qty) => {
+function changeInputQty(id, qty) {
   let cart = index.getCart();
   if (qty >= 1) {
     cart[id].qty = Number(qty);
     localStorage.setItem("cart", JSON.stringify(cart));
   }
   index.updateCartInfo();
-};
+}
 let input = document.querySelectorAll("#quantity");
 input.forEach((element) => {
   element.addEventListener("change", (event) => {
@@ -158,7 +159,7 @@ input.forEach((element) => {
 /****************************************************
  ************* DELETE ONE ARTICLE *******************
  ****************************************************/
-const deleteArticle = () => {
+function deleteArticle() {
   let trashBtn = document.querySelectorAll(".delete-item");
   trashBtn.forEach((element) => {
     element.addEventListener("click", function () {
@@ -169,17 +170,17 @@ const deleteArticle = () => {
       location.reload();
     });
   });
-};
+}
 deleteArticle();
 
 /***************************************************
  ***************** Send values from ****************
  ************ Formular to local storage ************
  ***************************************************/
-export const submitCart = () => {
+export function submitCart() {
   if (validForm()) {
     /* if the form is valid */
-    // create contact object and save it in local storage
+    // create contact object
     const formValues = {
       lastName: document.querySelector("#name").value,
       firstName: document.querySelector("#firstName").value,
@@ -189,16 +190,17 @@ export const submitCart = () => {
       phone: document.querySelector("#tel").value,
       email: document.querySelector("#email").value,
     };
-    localStorage.setItem("formValues", JSON.stringify(formValues)); //make object in json format in the local storage
+    localStorage.setItem("formValues", JSON.stringify(formValues)); //send object in json format in the local storage
     makeOrder(formValues);
   }
 }
+
 document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault();
-  submitCart();
+  submitCart(); // RUN THIS FUNCTION WHEN SUBMITING THE FORM WITH ID loginForm
 });
 
-const makeOrder = (formValues) => {
+function makeOrder(formValues) {
   let cart = index.getCart();
   let productsToSend = [];
   cart.forEach((product) => {
@@ -235,4 +237,4 @@ const makeOrder = (formValues) => {
     .catch(() => {
       alert("une erreur est survenue");
     });
-};
+}

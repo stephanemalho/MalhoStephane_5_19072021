@@ -8,11 +8,13 @@ section {
   padding-top: 125px;
   min-height: 700px;
   article {
+    h2{
+      font-size: 1.1em;
     p {
       display: flex;
       flex-direction: column;
       text-align: center;
-      font-size: 1.3em;
+      font-size: 1em;
       font-weight: bold;
       margin: 10px;
       padding: 10px 0;
@@ -22,6 +24,7 @@ section {
         padding: 10px 0;
       }
     }
+  } 
     a {
       margin: 50px 0;
       height: 50px;
