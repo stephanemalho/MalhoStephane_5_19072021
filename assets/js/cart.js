@@ -68,7 +68,7 @@ renderCart(); // RUN THE FUNCTION
 /****************************************************
  ************* RENDER AMOUNT IN HTML ****************
  ****************************************************/
-function renderAmount() {
+function renderResume() {
   let container = document.getElementById("resume");
   let content = `
   <thead>
@@ -117,7 +117,7 @@ function renderAmount() {
   });
 }
 
-renderAmount();
+renderResume();
 
 /******************************************************
  * send this article in cart.html if cart is empty  ***
