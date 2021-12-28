@@ -4,9 +4,9 @@ import * as index from "./index";
 const nav = document.querySelector("header");
 window.addEventListener("scroll", () => {
   if (window.scrollY > 120) {
-    nav.style.top = "-100px"; // UNSHOW HEADER
+    nav.style.top = "-100px"; // unshow header
   } else {
-    nav.style.top = 0; // SHOW HEADER
+    nav.style.top = 0; // show header
   }
 });
 
@@ -16,10 +16,10 @@ window.addEventListener("scroll", () => {
 
 async function getProducts(category) {
   try {
-    const response = await fetch("http://localhost:3000/api/" + category); // RESPONSE => FETCH THE CATEGORY IN API LOCALHOST 3000
-    const datas = await response.json(); // DATAS => MAKE RESPONSE IN json FORMAT
+    const response = await fetch("http://localhost:3000/api/" + category); // response fetch the category value in localhost 3000 api
+    const datas = await response.json(); // datas => makes response in Json format
     console.log(datas);
-    return datas;
+    return datas; // return url with the category
   } catch (error) {
     console.log(error);
     return error;
@@ -67,7 +67,7 @@ function renderProducts(products, category) {
         </article>
         `;
   });
-  container.innerHTML += content; // ADD CONTENT WITH ITS CONTAINER INNERHTML
+  container.innerHTML += content; // Add content variable with the current html content 
 }
 getProducts("cameras").then((result) => {
   renderProducts(result, "cameras");

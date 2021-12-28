@@ -10,10 +10,10 @@ async function getProduct() {
   let id = url.searchParams.get("id");
   try {
     const response = await fetch(
-      "http://localhost:3000/api/" + category + "/" + id // RETURN URL WITH category AND ITS id
+      "http://localhost:3000/api/" + category + "/" + id 
     );
     const datas = await response.json();
-    return datas;
+    return datas;  // return url with "category" value + its id
   } catch (error) {
     return error;
   }
@@ -25,27 +25,18 @@ async function getProduct() {
 
 function renderProduct(product) {
   let container = document.getElementById("container");
-  let content =
-    `
+  let content = `
   <div>
   <figure>
     <img
-      src="` +
-    product.imageUrl +
-    `"
+      src="${product.imageUrl}"
       alt="appareil photo ancien avec zoom"
     />
-    <span>` +
-    index.priceToEuros(product.price) +
-    `</span>
+    <span>${index.priceToEuros(product.price)}</span>
     <figcaption>
-      <h3>` +
-    product.name +
-    `</h3>
+      <h3>${product.name}</h3>
       <p>
-      ` +
-    product.description +
-    `
+      ${product.description}
       </p>
     </figcaption>
   </figure>
@@ -56,8 +47,8 @@ function renderProduct(product) {
   <label for="choice">Faites un choix parmi la sélection</label>
   <select id="choice">
     ${product[getOptionsType()].map(
-      (element) => `<option value="${element}">${element}</option>`
-    )}
+    (element) => `<option value="${element}">${element}</option>`
+  )}
   </select>
 </fieldset>
 </div>
@@ -65,8 +56,8 @@ function renderProduct(product) {
 
   document
     .getElementsByTagName("form")[0]
-    .addEventListener("submit", function (e) {});
-  container.innerHTML += content; // ADD CONTENT WITH CONTAINER INNERHTML
+    .addEventListener("submit", function (e) { });
+  container.innerHTML += content; // encrease the content with the current html in the named container section
 }
 
 getProduct().then((result) => {
@@ -74,7 +65,7 @@ getProduct().then((result) => {
   document
     .getElementsByTagName("form")[0]
     .addEventListener("submit", function (e) {
-      e.preventDefault(); //STOP PROPAGATION
+      e.preventDefault(); //stop propagation 
       addToCard(result);
     });
 });
@@ -84,18 +75,18 @@ getProduct().then((result) => {
  ****************************************************
  ****************************************************/
 
-export function addToCard(product) {
+export const addToCard = (product) => {
   let cart = index.getCart();
 
   product.optionValue = document.getElementById("choice").value;
   product.qty = Number(document.getElementById("quantity").value);
 
-  // CHECK IF PRODUCT IS DEFIND ON CART
+  // check if product is defind on cart
   const isProduct = cart.find(
     (element) =>
       element._id === product._id && element.optionValue === product.optionValue
   );
-  // IF UNDEFINED ADD NEW PRODUCT ON CART
+  // if undefined add new product on cart
   if (isProduct === undefined) {
     let newProduct = {
       _id: product._id,
@@ -109,7 +100,7 @@ export function addToCard(product) {
     cart.push(newProduct);
     localStorage.setItem("cart", JSON.stringify(cart));
   }
-  // ELSE INCREASE THE NEW QTY WITH isPRODUCT.qty
+  //  else increase the new qty with isProduct.qty
   else {
     const newCart = cart.map((element) => {
       if (
@@ -122,12 +113,12 @@ export function addToCard(product) {
     });
     localStorage.setItem("cart", JSON.stringify(newCart));
   }
-  // SHOW FUNCTION IN index.js
-  index.updateCartQty();
+  index.updateCartQty(); // RUN IMPORTED FUNCTION FROM index.js
   toggleModal("open");
-}
-let btn = document.getElementById("close"); // RUN MODAL ON CLIC
+};
+let btn = document.getElementById("close");
 btn.addEventListener("click", (event) => {
+  // close modal on click
   event.preventDefault();
   toggleModal("close");
 });
@@ -135,22 +126,22 @@ btn.addEventListener("click", (event) => {
 /****************************************************
  *************** MODAL FUNCTION  ********************
  ****************************************************/
-const toggleModal = (toDo) => {
+function toggleModal(toDo) {
   let modal = document.getElementById("checkCart");
   if (toDo === "open") {
     modal.style.display = "flex";
-    modal.setAttribute("aria-hidden", false); // SHOW MODAL
+    modal.setAttribute("aria-hidden", false); // show modal
   }
   if (toDo === "close") {
     modal.style.display = "none";
-    modal.setAttribute("aria-hidden", true); // HIDE MODAL
+    modal.setAttribute("aria-hidden", true); // hide modal
   }
-};
+}
 
-export function getOptionsType() {
+export const getOptionsType = () => {
   const url = new URL(window.location.href);
   let category = url.searchParams.get("category");
   if (category === "cameras") {
-    return "lenses"; // RETURN LENSES OF CATEGORY
+    return "lenses"; // return lenses of the category
   }
-}
+};
