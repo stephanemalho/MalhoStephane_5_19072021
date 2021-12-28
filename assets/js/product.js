@@ -10,10 +10,10 @@ async function getProduct() {
   let id = url.searchParams.get("id");
   try {
     const response = await fetch(
-      "http://localhost:3000/api/" + category + "/" + id // return url with "category" value + its id
+      "http://localhost:3000/api/" + category + "/" + id 
     );
     const datas = await response.json();
-    return datas;
+    return datas;  // return url with "category" value + its id
   } catch (error) {
     return error;
   }

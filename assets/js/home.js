@@ -19,7 +19,7 @@ async function getProducts(category) {
     const response = await fetch("http://localhost:3000/api/" + category); // response fetch the category value in localhost 3000 api
     const datas = await response.json(); // datas => makes response in Json format
     console.log(datas);
-    return datas;
+    return datas; // return url with the category
   } catch (error) {
     console.log(error);
     return error;

@@ -200,6 +200,11 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   submitCart(); // RUN THIS FUNCTION WHEN SUBMITING THE FORM WITH ID loginForm
 });
 
+/***************************************************
+ ***************** Send Order to the ***************
+ ************  Local storage and redirect **********
+ ***************** confirmation.html ***************
+ ***************************************************/
 function makeOrder(formValues) {
   let cart = index.getCart();
   let productsToSend = [];
@@ -218,7 +223,7 @@ function makeOrder(formValues) {
     },
     body: JSON.stringify(formatData),
   })
-    .then((res) => {
+    .then((res) => { 
       if (res.ok) {
         console.log(res.json);
         return res.json();
