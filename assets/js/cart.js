@@ -225,7 +225,6 @@ function makeOrder(formValues) {
   })
     .then((res) => { 
       if (res.ok) {
-        console.log(res.json);
         return res.json();
       } else {
         throw new Error("Error with API. order not sent");

@@ -20,7 +20,6 @@ export const checkIfRegExp = (regex, input, message) => {
     small.style.color = "red";
     input.style.border = "1px solid red";
     changeFormStatus(false);
-    console.log(formStatus);
     return false;
   }
 };
