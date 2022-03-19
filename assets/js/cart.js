@@ -190,7 +190,6 @@ export function submitCart() {
       phone: document.querySelector("#tel").value,
       email: document.querySelector("#email").value,
     };
-    localStorage.setItem("formValues", JSON.stringify(formValues)); //send object in json format in the local storage
     makeOrder(formValues);
   }
 }
@@ -232,7 +231,8 @@ function makeOrder(formValues) {
       }
     })
     .then((value) => {
-      localStorage.clear();
+      localStorage.setItem("totalPrice",index.getTotalCartTTC());
+      localStorage.removeItem("cart");
       localStorage.setItem("orderId", JSON.stringify(value.orderId));
     })
     .then(() => {
