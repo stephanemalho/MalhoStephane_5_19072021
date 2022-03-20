@@ -13,7 +13,7 @@ function renderOrder() {
       "Votre commande n'a pas été prise en compte, merci de vérifier a nouveau votre panier.";
   } else {
     // else run this HTML
-    setOrder.innerHTML += `<p>Votre commande  N°:<br><span> ${orderStorage} </span><br>à bien été prise en compte !</p> <p>Prix total: ${index.priceToEuros(localStorage.getItem("totalPrice"))}`;
+    setOrder.innerHTML += `<p>Votre commande  N°:<br><span> ${orderStorage} </span><br>à bien été prise en compte !</p> <p>Prix total: ${index.priceToEuros(localStorage.getItem("totalPrice"))} </p>`;
   }
 }
 renderOrder();
