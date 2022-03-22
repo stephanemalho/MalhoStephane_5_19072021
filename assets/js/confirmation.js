@@ -1,3 +1,5 @@
+import * as index from "./index";
+
 /************************************************************
  *******  RENDER ORDER STORAGE TO THE PAGE ******************
  ************************************************************/
@@ -11,7 +13,7 @@ function renderOrder() {
       "Votre commande n'a pas été prise en compte, merci de vérifier a nouveau votre panier.";
   } else {
     // else run this HTML
-    setOrder.innerHTML += `<br>Votre commande <p> N°:<br><span> ${orderStorage} </span><br>à bien été prise en compte !</p>`;
+    setOrder.innerHTML += `<p>Votre commande  N°:<br><span> ${orderStorage} </span><br>à bien été prise en compte !</p> <p>Prix total: ${index.priceToEuros(localStorage.getItem("totalPrice"))} </p>`;
   }
 }
 renderOrder();
